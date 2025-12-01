@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            textBoxMedicineDosage = new TextBox();
+            textBoxMedicineName = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            comboBox2 = new ComboBox();
-            textBox3 = new TextBox();
+            comboBoxMedicineDosageMesure = new ComboBox();
+            textBoxMedicineDescription = new TextBox();
             label4 = new Label();
-            textBox4 = new TextBox();
+            textBoxMedicineMolecule = new TextBox();
             label5 = new Label();
-            button1 = new Button();
+            buttonCreateMedicine = new Button();
             SuspendLayout();
             // 
-            // textBox2
+            // textBoxMedicineDosage
             // 
-            textBox2.Location = new Point(12, 157);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 15;
+            textBoxMedicineDosage.Location = new Point(12, 157);
+            textBoxMedicineDosage.Name = "textBoxMedicineDosage";
+            textBoxMedicineDosage.Size = new Size(125, 27);
+            textBoxMedicineDosage.TabIndex = 15;
             // 
-            // textBox1
+            // textBoxMedicineName
             // 
-            textBox1.Location = new Point(12, 82);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(192, 27);
-            textBox1.TabIndex = 14;
+            textBoxMedicineName.Location = new Point(12, 82);
+            textBoxMedicineName.Name = "textBoxMedicineName";
+            textBoxMedicineName.Size = new Size(192, 27);
+            textBoxMedicineName.TabIndex = 14;
             // 
             // label3
             // 
@@ -77,26 +77,27 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(90, 9);
+            label1.Location = new Point(72, 9);
             label1.Name = "label1";
             label1.Size = new Size(254, 28);
             label1.TabIndex = 11;
             label1.Text = "Création d'un médicament";
             // 
-            // comboBox2
+            // comboBoxMedicineDosageMesure
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(143, 157);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(61, 28);
-            comboBox2.TabIndex = 16;
+            comboBoxMedicineDosageMesure.FormattingEnabled = true;
+            comboBoxMedicineDosageMesure.Items.AddRange(new object[] { "mg", "gµ", "g", "ml", "UI", "mg/ml ", "µg/ml", "mg/g", "%" });
+            comboBoxMedicineDosageMesure.Location = new Point(143, 157);
+            comboBoxMedicineDosageMesure.Name = "comboBoxMedicineDosageMesure";
+            comboBoxMedicineDosageMesure.Size = new Size(61, 28);
+            comboBoxMedicineDosageMesure.TabIndex = 16;
             // 
-            // textBox3
+            // textBoxMedicineDescription
             // 
-            textBox3.Location = new Point(12, 236);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(354, 27);
-            textBox3.TabIndex = 18;
+            textBoxMedicineDescription.Location = new Point(12, 236);
+            textBoxMedicineDescription.Name = "textBoxMedicineDescription";
+            textBoxMedicineDescription.Size = new Size(354, 27);
+            textBoxMedicineDescription.TabIndex = 18;
             // 
             // label4
             // 
@@ -107,12 +108,12 @@
             label4.TabIndex = 17;
             label4.Text = "Description";
             // 
-            // textBox4
+            // textBoxMedicineMolecule
             // 
-            textBox4.Location = new Point(12, 311);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(192, 27);
-            textBox4.TabIndex = 20;
+            textBoxMedicineMolecule.Location = new Point(12, 311);
+            textBoxMedicineMolecule.Name = "textBoxMedicineMolecule";
+            textBoxMedicineMolecule.Size = new Size(192, 27);
+            textBoxMedicineMolecule.TabIndex = 20;
             // 
             // label5
             // 
@@ -123,29 +124,30 @@
             label5.TabIndex = 19;
             label5.Text = "Molécule";
             // 
-            // button1
+            // buttonCreateMedicine
             // 
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(105, 381);
-            button1.Name = "button1";
-            button1.Size = new Size(186, 37);
-            button1.TabIndex = 21;
-            button1.Text = "Ajouter un médicament";
-            button1.UseVisualStyleBackColor = true;
+            buttonCreateMedicine.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonCreateMedicine.Location = new Point(105, 381);
+            buttonCreateMedicine.Name = "buttonCreateMedicine";
+            buttonCreateMedicine.Size = new Size(186, 37);
+            buttonCreateMedicine.TabIndex = 21;
+            buttonCreateMedicine.Text = "Ajouter un médicament";
+            buttonCreateMedicine.UseVisualStyleBackColor = true;
+            buttonCreateMedicine.Click += buttonCreateMedicine_Click;
             // 
             // ModalCreateMedicine
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(391, 430);
-            Controls.Add(button1);
-            Controls.Add(textBox4);
+            Controls.Add(buttonCreateMedicine);
+            Controls.Add(textBoxMedicineMolecule);
             Controls.Add(label5);
-            Controls.Add(textBox3);
+            Controls.Add(textBoxMedicineDescription);
             Controls.Add(label4);
-            Controls.Add(comboBox2);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(comboBoxMedicineDosageMesure);
+            Controls.Add(textBoxMedicineDosage);
+            Controls.Add(textBoxMedicineName);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -157,16 +159,16 @@
 
         #endregion
 
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox textBoxMedicineDosage;
+        private TextBox textBoxMedicineName;
         private Label label3;
         private Label label2;
         private Label label1;
-        private ComboBox comboBox2;
-        private TextBox textBox3;
+        private ComboBox comboBoxMedicineDosageMesure;
+        private TextBox textBoxMedicineDescription;
         private Label label4;
-        private TextBox textBox4;
+        private TextBox textBoxMedicineMolecule;
         private Label label5;
-        private Button button1;
+        private Button buttonCreateMedicine;
     }
 }

@@ -17,6 +17,8 @@ namespace GSB_2.Models
         public string Password { get; set; }
         public bool Role { get; set; }
 
+        public static User Connected { get; set; } = null!;
+
 
         //Ceci est un constructeur par défaut.
         //Il permet de créer une instance de la classe qui nous permettra d'acceder aux méthodes et propriétés de celle ci. 

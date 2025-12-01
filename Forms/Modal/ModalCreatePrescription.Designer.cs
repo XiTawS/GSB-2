@@ -28,40 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            buttonCreatePrescription = new Button();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            comboBox3 = new ComboBox();
-            monthCalendar1 = new MonthCalendar();
+            comboBoxPrescriptionListPatient = new ComboBox();
+            monthCalendarPrescriptionValidity = new MonthCalendar();
             label4 = new Label();
-            comboBox1 = new ComboBox();
-            textBox1 = new TextBox();
+            comboBoxPrescriptionListMédicineName1 = new ComboBox();
+            comboBoxPrescriptionMédicineQuantity1 = new TextBox();
             label5 = new Label();
-            button2 = new Button();
-            button3 = new Button();
-            textBox2 = new TextBox();
-            comboBox2 = new ComboBox();
-            button4 = new Button();
-            textBox3 = new TextBox();
-            comboBox4 = new ComboBox();
-            button5 = new Button();
-            textBox4 = new TextBox();
-            comboBox5 = new ComboBox();
-            button6 = new Button();
-            textBox5 = new TextBox();
-            comboBox6 = new ComboBox();
+            buttonPrescriptionAddMedicine1 = new Button();
+            buttonPrescriptionAddMedicine2 = new Button();
+            comboBoxPrescriptionMédicineQuantity2 = new TextBox();
+            comboBoxPrescriptionListMédicineName2 = new ComboBox();
+            buttonPrescriptionAddMedicine3 = new Button();
+            comboBoxPrescriptionMédicineQuantity3 = new TextBox();
+            comboBoxPrescriptionListMédicineName3 = new ComboBox();
+            buttonPrescriptionAddMedicine4 = new Button();
+            comboBoxPrescriptionMédicineQuantity4 = new TextBox();
+            comboBoxPrescriptionListMédicineName4 = new ComboBox();
+            comboBoxPrescriptionMédicineQuantity5 = new TextBox();
+            comboBoxPrescriptionListMédicineName5 = new ComboBox();
             SuspendLayout();
             // 
-            // button1
+            // buttonCreatePrescription
             // 
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(210, 373);
-            button1.Name = "button1";
-            button1.Size = new Size(203, 37);
-            button1.TabIndex = 16;
-            button1.Text = "Créer une ordonnance";
-            button1.UseVisualStyleBackColor = true;
+            buttonCreatePrescription.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonCreatePrescription.Location = new Point(210, 373);
+            buttonCreatePrescription.Name = "buttonCreatePrescription";
+            buttonCreatePrescription.Size = new Size(203, 37);
+            buttonCreatePrescription.TabIndex = 16;
+            buttonCreatePrescription.Text = "Créer une ordonnance";
+            buttonCreatePrescription.UseVisualStyleBackColor = true;
+            buttonCreatePrescription.Click += buttonCreatePrescription_Click;
             // 
             // label3
             // 
@@ -91,19 +91,19 @@
             label1.TabIndex = 11;
             label1.Text = "Création d'une ordonnance";
             // 
-            // comboBox3
+            // comboBoxPrescriptionListPatient
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(33, 97);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(261, 28);
-            comboBox3.TabIndex = 21;
+            comboBoxPrescriptionListPatient.FormattingEnabled = true;
+            comboBoxPrescriptionListPatient.Location = new Point(33, 97);
+            comboBoxPrescriptionListPatient.Name = "comboBoxPrescriptionListPatient";
+            comboBoxPrescriptionListPatient.Size = new Size(261, 28);
+            comboBoxPrescriptionListPatient.TabIndex = 21;
             // 
-            // monthCalendar1
+            // monthCalendarPrescriptionValidity
             // 
-            monthCalendar1.Location = new Point(363, 97);
-            monthCalendar1.Name = "monthCalendar1";
-            monthCalendar1.TabIndex = 23;
+            monthCalendarPrescriptionValidity.Location = new Point(363, 97);
+            monthCalendarPrescriptionValidity.Name = "monthCalendarPrescriptionValidity";
+            monthCalendarPrescriptionValidity.TabIndex = 23;
             // 
             // label4
             // 
@@ -114,20 +114,20 @@
             label4.TabIndex = 24;
             label4.Text = "Validité jusqu'au :";
             // 
-            // comboBox1
+            // comboBoxPrescriptionListMédicineName1
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(33, 183);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(171, 28);
-            comboBox1.TabIndex = 25;
+            comboBoxPrescriptionListMédicineName1.FormattingEnabled = true;
+            comboBoxPrescriptionListMédicineName1.Location = new Point(33, 183);
+            comboBoxPrescriptionListMédicineName1.Name = "comboBoxPrescriptionListMédicineName1";
+            comboBoxPrescriptionListMédicineName1.Size = new Size(171, 28);
+            comboBoxPrescriptionListMédicineName1.TabIndex = 25;
             // 
-            // textBox1
+            // comboBoxPrescriptionMédicineQuantity1
             // 
-            textBox1.Location = new Point(210, 183);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(39, 27);
-            textBox1.TabIndex = 26;
+            comboBoxPrescriptionMédicineQuantity1.Location = new Point(210, 183);
+            comboBoxPrescriptionMédicineQuantity1.Name = "comboBoxPrescriptionMédicineQuantity1";
+            comboBoxPrescriptionMédicineQuantity1.Size = new Size(39, 27);
+            comboBoxPrescriptionMédicineQuantity1.TabIndex = 26;
             // 
             // label5
             // 
@@ -138,136 +138,126 @@
             label5.TabIndex = 27;
             label5.Text = "Qty :";
             // 
-            // button2
+            // buttonPrescriptionAddMedicine1
             // 
-            button2.Location = new Point(257, 183);
-            button2.Name = "button2";
-            button2.Size = new Size(37, 29);
-            button2.TabIndex = 28;
-            button2.Text = "+";
-            button2.UseVisualStyleBackColor = true;
+            buttonPrescriptionAddMedicine1.Location = new Point(257, 183);
+            buttonPrescriptionAddMedicine1.Name = "buttonPrescriptionAddMedicine1";
+            buttonPrescriptionAddMedicine1.Size = new Size(37, 29);
+            buttonPrescriptionAddMedicine1.TabIndex = 28;
+            buttonPrescriptionAddMedicine1.Text = "+";
+            buttonPrescriptionAddMedicine1.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonPrescriptionAddMedicine2
             // 
-            button3.Location = new Point(257, 217);
-            button3.Name = "button3";
-            button3.Size = new Size(37, 29);
-            button3.TabIndex = 31;
-            button3.Text = "+";
-            button3.UseVisualStyleBackColor = true;
+            buttonPrescriptionAddMedicine2.Location = new Point(257, 217);
+            buttonPrescriptionAddMedicine2.Name = "buttonPrescriptionAddMedicine2";
+            buttonPrescriptionAddMedicine2.Size = new Size(37, 29);
+            buttonPrescriptionAddMedicine2.TabIndex = 31;
+            buttonPrescriptionAddMedicine2.Text = "+";
+            buttonPrescriptionAddMedicine2.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // comboBoxPrescriptionMédicineQuantity2
             // 
-            textBox2.Location = new Point(210, 217);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(39, 27);
-            textBox2.TabIndex = 30;
+            comboBoxPrescriptionMédicineQuantity2.Location = new Point(210, 217);
+            comboBoxPrescriptionMédicineQuantity2.Name = "comboBoxPrescriptionMédicineQuantity2";
+            comboBoxPrescriptionMédicineQuantity2.Size = new Size(39, 27);
+            comboBoxPrescriptionMédicineQuantity2.TabIndex = 30;
             // 
-            // comboBox2
+            // comboBoxPrescriptionListMédicineName2
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(33, 217);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(171, 28);
-            comboBox2.TabIndex = 29;
+            comboBoxPrescriptionListMédicineName2.FormattingEnabled = true;
+            comboBoxPrescriptionListMédicineName2.Location = new Point(33, 217);
+            comboBoxPrescriptionListMédicineName2.Name = "comboBoxPrescriptionListMédicineName2";
+            comboBoxPrescriptionListMédicineName2.Size = new Size(171, 28);
+            comboBoxPrescriptionListMédicineName2.TabIndex = 29;
             // 
-            // button4
+            // buttonPrescriptionAddMedicine3
             // 
-            button4.Location = new Point(257, 251);
-            button4.Name = "button4";
-            button4.Size = new Size(37, 29);
-            button4.TabIndex = 34;
-            button4.Text = "+";
-            button4.UseVisualStyleBackColor = true;
+            buttonPrescriptionAddMedicine3.Location = new Point(257, 251);
+            buttonPrescriptionAddMedicine3.Name = "buttonPrescriptionAddMedicine3";
+            buttonPrescriptionAddMedicine3.Size = new Size(37, 29);
+            buttonPrescriptionAddMedicine3.TabIndex = 34;
+            buttonPrescriptionAddMedicine3.Text = "+";
+            buttonPrescriptionAddMedicine3.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // comboBoxPrescriptionMédicineQuantity3
             // 
-            textBox3.Location = new Point(210, 251);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(39, 27);
-            textBox3.TabIndex = 33;
+            comboBoxPrescriptionMédicineQuantity3.Location = new Point(210, 251);
+            comboBoxPrescriptionMédicineQuantity3.Name = "comboBoxPrescriptionMédicineQuantity3";
+            comboBoxPrescriptionMédicineQuantity3.Size = new Size(39, 27);
+            comboBoxPrescriptionMédicineQuantity3.TabIndex = 33;
             // 
-            // comboBox4
+            // comboBoxPrescriptionListMédicineName3
             // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(33, 251);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(171, 28);
-            comboBox4.TabIndex = 32;
+            comboBoxPrescriptionListMédicineName3.FormattingEnabled = true;
+            comboBoxPrescriptionListMédicineName3.Location = new Point(33, 251);
+            comboBoxPrescriptionListMédicineName3.Name = "comboBoxPrescriptionListMédicineName3";
+            comboBoxPrescriptionListMédicineName3.Size = new Size(171, 28);
+            comboBoxPrescriptionListMédicineName3.TabIndex = 32;
             // 
-            // button5
+            // buttonPrescriptionAddMedicine4
             // 
-            button5.Location = new Point(257, 285);
-            button5.Name = "button5";
-            button5.Size = new Size(37, 29);
-            button5.TabIndex = 37;
-            button5.Text = "+";
-            button5.UseVisualStyleBackColor = true;
+            buttonPrescriptionAddMedicine4.Location = new Point(257, 285);
+            buttonPrescriptionAddMedicine4.Name = "buttonPrescriptionAddMedicine4";
+            buttonPrescriptionAddMedicine4.Size = new Size(37, 29);
+            buttonPrescriptionAddMedicine4.TabIndex = 37;
+            buttonPrescriptionAddMedicine4.Text = "+";
+            buttonPrescriptionAddMedicine4.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // comboBoxPrescriptionMédicineQuantity4
             // 
-            textBox4.Location = new Point(210, 285);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(39, 27);
-            textBox4.TabIndex = 36;
+            comboBoxPrescriptionMédicineQuantity4.Location = new Point(210, 285);
+            comboBoxPrescriptionMédicineQuantity4.Name = "comboBoxPrescriptionMédicineQuantity4";
+            comboBoxPrescriptionMédicineQuantity4.Size = new Size(39, 27);
+            comboBoxPrescriptionMédicineQuantity4.TabIndex = 36;
             // 
-            // comboBox5
+            // comboBoxPrescriptionListMédicineName4
             // 
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Location = new Point(33, 285);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(171, 28);
-            comboBox5.TabIndex = 35;
+            comboBoxPrescriptionListMédicineName4.FormattingEnabled = true;
+            comboBoxPrescriptionListMédicineName4.Location = new Point(33, 285);
+            comboBoxPrescriptionListMédicineName4.Name = "comboBoxPrescriptionListMédicineName4";
+            comboBoxPrescriptionListMédicineName4.Size = new Size(171, 28);
+            comboBoxPrescriptionListMédicineName4.TabIndex = 35;
             // 
-            // button6
+            // comboBoxPrescriptionMédicineQuantity5
             // 
-            button6.Location = new Point(257, 319);
-            button6.Name = "button6";
-            button6.Size = new Size(37, 29);
-            button6.TabIndex = 40;
-            button6.Text = "+";
-            button6.UseVisualStyleBackColor = true;
+            comboBoxPrescriptionMédicineQuantity5.Location = new Point(210, 319);
+            comboBoxPrescriptionMédicineQuantity5.Name = "comboBoxPrescriptionMédicineQuantity5";
+            comboBoxPrescriptionMédicineQuantity5.Size = new Size(39, 27);
+            comboBoxPrescriptionMédicineQuantity5.TabIndex = 39;
             // 
-            // textBox5
+            // comboBoxPrescriptionListMédicineName5
             // 
-            textBox5.Location = new Point(210, 319);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(39, 27);
-            textBox5.TabIndex = 39;
-            // 
-            // comboBox6
-            // 
-            comboBox6.FormattingEnabled = true;
-            comboBox6.Location = new Point(33, 319);
-            comboBox6.Name = "comboBox6";
-            comboBox6.Size = new Size(171, 28);
-            comboBox6.TabIndex = 38;
+            comboBoxPrescriptionListMédicineName5.FormattingEnabled = true;
+            comboBoxPrescriptionListMédicineName5.Location = new Point(33, 319);
+            comboBoxPrescriptionListMédicineName5.Name = "comboBoxPrescriptionListMédicineName5";
+            comboBoxPrescriptionListMédicineName5.Size = new Size(171, 28);
+            comboBoxPrescriptionListMédicineName5.TabIndex = 38;
             // 
             // ModalCreatePrescription
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(688, 424);
-            Controls.Add(button6);
-            Controls.Add(textBox5);
-            Controls.Add(comboBox6);
-            Controls.Add(button5);
-            Controls.Add(textBox4);
-            Controls.Add(comboBox5);
-            Controls.Add(button4);
-            Controls.Add(textBox3);
-            Controls.Add(comboBox4);
-            Controls.Add(button3);
-            Controls.Add(textBox2);
-            Controls.Add(comboBox2);
-            Controls.Add(button2);
+            Controls.Add(comboBoxPrescriptionMédicineQuantity5);
+            Controls.Add(comboBoxPrescriptionListMédicineName5);
+            Controls.Add(buttonPrescriptionAddMedicine4);
+            Controls.Add(comboBoxPrescriptionMédicineQuantity4);
+            Controls.Add(comboBoxPrescriptionListMédicineName4);
+            Controls.Add(buttonPrescriptionAddMedicine3);
+            Controls.Add(comboBoxPrescriptionMédicineQuantity3);
+            Controls.Add(comboBoxPrescriptionListMédicineName3);
+            Controls.Add(buttonPrescriptionAddMedicine2);
+            Controls.Add(comboBoxPrescriptionMédicineQuantity2);
+            Controls.Add(comboBoxPrescriptionListMédicineName2);
+            Controls.Add(buttonPrescriptionAddMedicine1);
             Controls.Add(label5);
-            Controls.Add(textBox1);
-            Controls.Add(comboBox1);
+            Controls.Add(comboBoxPrescriptionMédicineQuantity1);
+            Controls.Add(comboBoxPrescriptionListMédicineName1);
             Controls.Add(label4);
-            Controls.Add(monthCalendar1);
-            Controls.Add(comboBox3);
-            Controls.Add(button1);
+            Controls.Add(monthCalendarPrescriptionValidity);
+            Controls.Add(comboBoxPrescriptionListPatient);
+            Controls.Add(buttonCreatePrescription);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -279,28 +269,27 @@
         }
 
         #endregion
-        private Button button1;
+        private Button buttonCreatePrescription;
         private Label label3;
         private Label label2;
         private Label label1;
-        private ComboBox comboBox3;
-        private MonthCalendar monthCalendar1;
+        private ComboBox comboBoxPrescriptionListPatient;
+        private MonthCalendar monthCalendarPrescriptionValidity;
         private Label label4;
-        private ComboBox comboBox1;
-        private TextBox textBox1;
+        private ComboBox comboBoxPrescriptionListMédicineName1;
+        private TextBox comboBoxPrescriptionMédicineQuantity1;
         private Label label5;
-        private Button button2;
-        private Button button3;
-        private TextBox textBox2;
-        private ComboBox comboBox2;
-        private Button button4;
-        private TextBox textBox3;
-        private ComboBox comboBox4;
-        private Button button5;
-        private TextBox textBox4;
-        private ComboBox comboBox5;
-        private Button button6;
-        private TextBox textBox5;
-        private ComboBox comboBox6;
+        private Button buttonPrescriptionAddMedicine1;
+        private Button buttonPrescriptionAddMedicine2;
+        private TextBox comboBoxPrescriptionMédicineQuantity2;
+        private ComboBox comboBoxPrescriptionListMédicineName2;
+        private Button buttonPrescriptionAddMedicine3;
+        private TextBox comboBoxPrescriptionMédicineQuantity3;
+        private ComboBox comboBoxPrescriptionListMédicineName3;
+        private Button buttonPrescriptionAddMedicine4;
+        private TextBox comboBoxPrescriptionMédicineQuantity4;
+        private ComboBox comboBoxPrescriptionListMédicineName4;
+        private TextBox comboBoxPrescriptionMédicineQuantity5;
+        private ComboBox comboBoxPrescriptionListMédicineName5;
     }
 }

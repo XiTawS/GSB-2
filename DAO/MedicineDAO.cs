@@ -39,5 +39,27 @@ namespace GSB_2.DAO
                 }
             }
         }
+        public bool CreateMedicine(int id_user, string name, string molecule, int dosage, string description)
+        {
+            string query = @"INSERT INTO Medicine 
+                     (id_user, name, molecule, dosage, description) 
+                     VALUES 
+                     (@id_user, @name, @molecule, @dosage, @description)";
+
+            using (MySqlConnection conn = db.GetConnection())
+            {
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id_user", id_user);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@molecule", molecule);
+                    cmd.Parameters.AddWithValue("@dosage", dosage);
+                    cmd.Parameters.AddWithValue("@description", description ?? (object)DBNull.Value);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
     }
 }

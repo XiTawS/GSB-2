@@ -46,5 +46,25 @@ namespace GSB_2.DAO
                 }
             }
         }
+        public bool AddMedicineToPrescription(int id_prescription, int id_medicine, int quantity)
+        {
+            string query = @"INSERT INTO Appartient 
+                     (id_prescription, id_medicine, quantity) 
+                     VALUES 
+                     (@id_prescription, @id_medicine, @quantity)";
+
+            using (MySqlConnection conn = db.GetConnection())
+            {
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id_prescription", id_prescription);
+                    cmd.Parameters.AddWithValue("@id_medicine", id_medicine);
+                    cmd.Parameters.AddWithValue("@quantity", quantity);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
     }
 }

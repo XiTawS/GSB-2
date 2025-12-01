@@ -91,5 +91,27 @@ namespace GSB_2.DAO
                 }
             }
         }
+        public bool CreatePatient(int id_user, string name, string firstname, int age, string gender)
+        {
+            string query = @"INSERT INTO Patient 
+                     (id_user, name, firstname, age, gender) 
+                     VALUES 
+                     (@id_user, @name, @firstname, @age, @gender)";
+
+            using (MySqlConnection conn = db.GetConnection())
+            {
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id_user", id_user);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@firstname", firstname);
+                    cmd.Parameters.AddWithValue("@age", age);
+                    cmd.Parameters.AddWithValue("@gender", gender);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
     }
 }

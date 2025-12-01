@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
+            textBoxUserEmail = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            comboBox3 = new ComboBox();
-            textBox2 = new TextBox();
+            comboBoxUserRole = new ComboBox();
+            textBoxUserPassword = new TextBox();
             label4 = new Label();
-            textBox3 = new TextBox();
+            textBoxUserFirstname = new TextBox();
             label5 = new Label();
-            textBox4 = new TextBox();
+            textBoxUserName = new TextBox();
             label6 = new Label();
-            button1 = new Button();
+            buttonCreateUser = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // textBoxUserEmail
             // 
-            textBox1.Location = new Point(28, 164);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(231, 27);
-            textBox1.TabIndex = 18;
+            textBoxUserEmail.Location = new Point(28, 164);
+            textBoxUserEmail.Name = "textBoxUserEmail";
+            textBoxUserEmail.Size = new Size(231, 27);
+            textBoxUserEmail.TabIndex = 18;
             // 
             // label3
             // 
@@ -76,22 +76,22 @@
             label1.Size = new Size(231, 28);
             label1.TabIndex = 11;
             label1.Text = "Création d'un utilisateur";
-            label1.Click += label1_Click;
             // 
-            // comboBox3
+            // comboBoxUserRole
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(28, 302);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(161, 28);
-            comboBox3.TabIndex = 19;
+            comboBoxUserRole.FormattingEnabled = true;
+            comboBoxUserRole.Items.AddRange(new object[] { "Médecin", "Laboratoire" });
+            comboBoxUserRole.Location = new Point(28, 302);
+            comboBoxUserRole.Name = "comboBoxUserRole";
+            comboBoxUserRole.Size = new Size(161, 28);
+            comboBoxUserRole.TabIndex = 19;
             // 
-            // textBox2
+            // textBoxUserPassword
             // 
-            textBox2.Location = new Point(28, 233);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(231, 27);
-            textBox2.TabIndex = 21;
+            textBoxUserPassword.Location = new Point(28, 233);
+            textBoxUserPassword.Name = "textBoxUserPassword";
+            textBoxUserPassword.Size = new Size(231, 27);
+            textBoxUserPassword.TabIndex = 21;
             // 
             // label4
             // 
@@ -102,12 +102,12 @@
             label4.TabIndex = 20;
             label4.Text = "Mot de passe";
             // 
-            // textBox3
+            // textBoxUserFirstname
             // 
-            textBox3.Location = new Point(28, 93);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(161, 27);
-            textBox3.TabIndex = 23;
+            textBoxUserFirstname.Location = new Point(28, 93);
+            textBoxUserFirstname.Name = "textBoxUserFirstname";
+            textBoxUserFirstname.Size = new Size(161, 27);
+            textBoxUserFirstname.TabIndex = 23;
             // 
             // label5
             // 
@@ -118,12 +118,12 @@
             label5.TabIndex = 22;
             label5.Text = "Prénom";
             // 
-            // textBox4
+            // textBoxUserName
             // 
-            textBox4.Location = new Point(223, 93);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(161, 27);
-            textBox4.TabIndex = 25;
+            textBoxUserName.Location = new Point(223, 93);
+            textBoxUserName.Name = "textBoxUserName";
+            textBoxUserName.Size = new Size(161, 27);
+            textBoxUserName.TabIndex = 25;
             // 
             // label6
             // 
@@ -134,30 +134,31 @@
             label6.TabIndex = 24;
             label6.Text = "Nom de famille";
             // 
-            // button1
+            // buttonCreateUser
             // 
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(121, 364);
-            button1.Name = "button1";
-            button1.Size = new Size(203, 37);
-            button1.TabIndex = 26;
-            button1.Text = "Créer un utilisateur";
-            button1.UseVisualStyleBackColor = true;
+            buttonCreateUser.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonCreateUser.Location = new Point(121, 364);
+            buttonCreateUser.Name = "buttonCreateUser";
+            buttonCreateUser.Size = new Size(203, 37);
+            buttonCreateUser.TabIndex = 26;
+            buttonCreateUser.Text = "Créer un utilisateur";
+            buttonCreateUser.UseVisualStyleBackColor = true;
+            buttonCreateUser.Click += buttonCreateUser_Click;
             // 
             // ModalCreateUser
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(447, 413);
-            Controls.Add(button1);
-            Controls.Add(textBox4);
+            Controls.Add(buttonCreateUser);
+            Controls.Add(textBoxUserName);
             Controls.Add(label6);
-            Controls.Add(textBox3);
+            Controls.Add(textBoxUserFirstname);
             Controls.Add(label5);
-            Controls.Add(textBox2);
+            Controls.Add(textBoxUserPassword);
             Controls.Add(label4);
-            Controls.Add(comboBox3);
-            Controls.Add(textBox1);
+            Controls.Add(comboBoxUserRole);
+            Controls.Add(textBoxUserEmail);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -169,17 +170,17 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox textBoxUserEmail;
         private Label label3;
         private Label label2;
         private Label label1;
-        private ComboBox comboBox3;
-        private TextBox textBox2;
+        private ComboBox comboBoxUserRole;
+        private TextBox textBoxUserPassword;
         private Label label4;
-        private TextBox textBox3;
+        private TextBox textBoxUserFirstname;
         private Label label5;
-        private TextBox textBox4;
+        private TextBox textBoxUserName;
         private Label label6;
-        private Button button1;
+        private Button buttonCreateUser;
     }
 }

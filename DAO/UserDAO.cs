@@ -1,7 +1,10 @@
 ﻿using GSB_2.Models;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Crypto.Generators;
 using System;
 using System.Data;
+using System.Security.Cryptography;
+using System.Text;
 using System.Xml.Linq;
 
 namespace GSB_2.DAO
@@ -86,6 +89,33 @@ namespace GSB_2.DAO
                 {
                     Console.WriteLine(ex.Message);
                     return null;
+                }
+            }
+        }
+        public bool CreateUser(string name, string firstname, string email, string password, bool role)
+        {
+            string query = @"INSERT INTO User 
+                     (name, firstname, email, password, role) 
+                     VALUES 
+                     (@name, @firstname, @email, @password, @role)";
+
+            SHA256 sha256 = SHA256.Create();
+            byte[] hashValue = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+            string hashedPassword = BitConverter.ToString(hashValue).Replace("-", "").ToLowerInvariant();
+
+
+            using (MySqlConnection conn = db.GetConnection())
+            {
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@firstname", firstname);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@password", hashedPassword);
+                    cmd.Parameters.AddWithValue("@role", role ? 1 : 0);
+
+                    return cmd.ExecuteNonQuery() > 0;
                 }
             }
         }

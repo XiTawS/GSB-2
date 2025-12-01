@@ -33,11 +33,11 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            button1 = new Button();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            buttonCreatePatient = new Button();
+            comboBoxPatientGender = new ComboBox();
+            comboBoxPatientAge = new ComboBox();
+            textBoxPatientName = new TextBox();
+            textBoxPatientFirstname = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -86,56 +86,58 @@
             label5.TabIndex = 4;
             label5.Text = "Genre";
             // 
-            // button1
+            // buttonCreatePatient
             // 
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(94, 401);
-            button1.Name = "button1";
-            button1.Size = new Size(152, 37);
-            button1.TabIndex = 5;
-            button1.Text = "Ajouter un patient";
-            button1.UseVisualStyleBackColor = true;
+            buttonCreatePatient.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonCreatePatient.Location = new Point(94, 401);
+            buttonCreatePatient.Name = "buttonCreatePatient";
+            buttonCreatePatient.Size = new Size(152, 37);
+            buttonCreatePatient.TabIndex = 5;
+            buttonCreatePatient.Text = "Ajouter un patient";
+            buttonCreatePatient.UseVisualStyleBackColor = true;
+            buttonCreatePatient.Click += buttonCreatePatient_Click;
             // 
-            // comboBox1
+            // comboBoxPatientGender
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(35, 329);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(161, 28);
-            comboBox1.TabIndex = 7;
+            comboBoxPatientGender.FormattingEnabled = true;
+            comboBoxPatientGender.Items.AddRange(new object[] { "Masculin", "Féminin" });
+            comboBoxPatientGender.Location = new Point(35, 329);
+            comboBoxPatientGender.Name = "comboBoxPatientGender";
+            comboBoxPatientGender.Size = new Size(161, 28);
+            comboBoxPatientGender.TabIndex = 7;
             // 
-            // comboBox2
+            // comboBoxPatientAge
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(35, 252);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(61, 28);
-            comboBox2.TabIndex = 8;
+            comboBoxPatientAge.FormattingEnabled = true;
+            comboBoxPatientAge.Location = new Point(35, 252);
+            comboBoxPatientAge.Name = "comboBoxPatientAge";
+            comboBoxPatientAge.Size = new Size(61, 28);
+            comboBoxPatientAge.TabIndex = 8;
             // 
-            // textBox1
+            // textBoxPatientName
             // 
-            textBox1.Location = new Point(35, 103);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 9;
+            textBoxPatientName.Location = new Point(35, 103);
+            textBoxPatientName.Name = "textBoxPatientName";
+            textBoxPatientName.Size = new Size(125, 27);
+            textBoxPatientName.TabIndex = 9;
             // 
-            // textBox2
+            // textBoxPatientFirstname
             // 
-            textBox2.Location = new Point(35, 178);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 10;
+            textBoxPatientFirstname.Location = new Point(35, 178);
+            textBoxPatientFirstname.Name = "textBoxPatientFirstname";
+            textBoxPatientFirstname.Size = new Size(125, 27);
+            textBoxPatientFirstname.TabIndex = 10;
             // 
             // ModalCreatePatient
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(350, 450);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
-            Controls.Add(button1);
+            Controls.Add(textBoxPatientFirstname);
+            Controls.Add(textBoxPatientName);
+            Controls.Add(comboBoxPatientAge);
+            Controls.Add(comboBoxPatientGender);
+            Controls.Add(buttonCreatePatient);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -143,6 +145,7 @@
             Controls.Add(label1);
             Name = "ModalCreatePatient";
             Text = "ModalCreatePatient";
+            Load += ModalCreatePatient_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -154,10 +157,10 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private Button button1;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private Button buttonCreatePatient;
+        private ComboBox comboBoxPatientGender;
+        private ComboBox comboBoxPatientAge;
+        private TextBox textBoxPatientName;
+        private TextBox textBoxPatientFirstname;
     }
 }

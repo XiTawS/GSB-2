@@ -49,6 +49,7 @@ namespace GSB_2
 
             if (user != null && user.Role == true)
             {
+                User.Connected = user;
                 MessageBox.Show($"Bienvenue {user.Firstname} {user.Name} !", "Connexion réussie",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -59,6 +60,7 @@ namespace GSB_2
             }
             else if (user != null && user.Role == false)
             {
+                User.Connected = user;
                 MessageBox.Show($"Bienvenue {user.Firstname} {user.Name} !", "Connexion réussie",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
