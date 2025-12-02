@@ -40,6 +40,7 @@
             dataGridViewDoctorListPrescription = new DataGridView();
             buttonCreatePatient = new Button();
             buttonCreatePrescription = new Button();
+            buttonViewDoctorDeconnexion = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDoctorListPatient).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDoctorListMedicine).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDoctorListPrescription).BeginInit();
@@ -55,6 +56,7 @@
             dataGridViewDoctorListPatient.RowHeadersWidth = 82;
             dataGridViewDoctorListPatient.Size = new Size(517, 440);
             dataGridViewDoctorListPatient.TabIndex = 0;
+            dataGridViewDoctorListPatient.CellDoubleClick += dataGridViewDoctorListPatient_CellDoubleClick;
             // 
             // label1
             // 
@@ -110,6 +112,7 @@
             dataGridViewDoctorListMedicine.RowHeadersWidth = 82;
             dataGridViewDoctorListMedicine.Size = new Size(517, 182);
             dataGridViewDoctorListMedicine.TabIndex = 4;
+            dataGridViewDoctorListMedicine.CellDoubleClick += dataGridViewDoctorListMedicine_CellDoubleClick;
             // 
             // textBox3
             // 
@@ -138,6 +141,7 @@
             dataGridViewDoctorListPrescription.RowHeadersWidth = 82;
             dataGridViewDoctorListPrescription.Size = new Size(517, 186);
             dataGridViewDoctorListPrescription.TabIndex = 7;
+            dataGridViewDoctorListPrescription.CellDoubleClick += dataGridViewDoctorListPrescription_CellDoubleClick;
             // 
             // buttonCreatePatient
             // 
@@ -159,11 +163,23 @@
             buttonCreatePrescription.UseVisualStyleBackColor = true;
             buttonCreatePrescription.Click += buttonCreatePrescription_Click;
             // 
+            // buttonViewDoctorDeconnexion
+            // 
+            buttonViewDoctorDeconnexion.ForeColor = Color.Red;
+            buttonViewDoctorDeconnexion.Location = new Point(986, 12);
+            buttonViewDoctorDeconnexion.Name = "buttonViewDoctorDeconnexion";
+            buttonViewDoctorDeconnexion.Size = new Size(104, 29);
+            buttonViewDoctorDeconnexion.TabIndex = 12;
+            buttonViewDoctorDeconnexion.Text = "Déconnexion";
+            buttonViewDoctorDeconnexion.UseVisualStyleBackColor = true;
+            buttonViewDoctorDeconnexion.Click += buttonViewDoctorDeconnexion_Click;
+            // 
             // FormDoctor
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1102, 683);
+            Controls.Add(buttonViewDoctorDeconnexion);
             Controls.Add(buttonCreatePrescription);
             Controls.Add(buttonCreatePatient);
             Controls.Add(textBox3);
@@ -179,7 +195,6 @@
             Margin = new Padding(2);
             Name = "FormDoctor";
             Text = "FormDoctor";
-            Load += FormDoctor_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewDoctorListPatient).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDoctorListMedicine).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDoctorListPrescription).EndInit();
@@ -201,5 +216,6 @@
         private DataGridView dataGridViewDoctorListPrescription;
         private Button buttonCreatePatient;
         private Button buttonCreatePrescription;
+        private Button buttonViewDoctorDeconnexion;
     }
 }

@@ -60,7 +60,6 @@ namespace GSB_2.Forms.Modal
                 return;
             }
 
-            // Construction du dosage complet
             string dosageComplet = $"{dosage} {unite}";
 
             try
@@ -69,7 +68,7 @@ namespace GSB_2.Forms.Modal
                 int laboUserId = User.Connected.Id;
 
                 MedicineDAO medicineDAO = new MedicineDAO();
-                bool success = medicineDAO.CreateMedicine(laboUserId, name, molecule, dosage, description);
+                bool success = medicineDAO.CreateMedicine(laboUserId, name, molecule, dosageComplet, description);
 
 
                 if (success)
@@ -78,6 +77,7 @@ namespace GSB_2.Forms.Modal
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearFields();
                     this.DialogResult = DialogResult.OK;
+                    this.Close();
 
                 }
                 else

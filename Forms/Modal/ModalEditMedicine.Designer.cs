@@ -28,36 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            textBox4 = new TextBox();
+            buttonModalEditMedicineSave = new Button();
+            textBoxModalEditMedicineMolecule = new TextBox();
             label5 = new Label();
-            textBox3 = new TextBox();
+            textBoxModalEditMedicineDescription = new TextBox();
             label4 = new Label();
-            comboBox2 = new ComboBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            comboBoxModalEditMedicineDosageMesure = new ComboBox();
+            textBoxModalEditMedicineDosage = new TextBox();
+            textBoxModalEditMedicineName = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            button2 = new Button();
+            buttonModalEditMedicineDelete = new Button();
             SuspendLayout();
             // 
-            // button1
+            // buttonModalEditMedicineSave
             // 
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(203, 397);
-            button1.Name = "button1";
-            button1.Size = new Size(186, 37);
-            button1.TabIndex = 32;
-            button1.Text = "Enregistrer";
-            button1.UseVisualStyleBackColor = true;
+            buttonModalEditMedicineSave.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonModalEditMedicineSave.Location = new Point(203, 397);
+            buttonModalEditMedicineSave.Name = "buttonModalEditMedicineSave";
+            buttonModalEditMedicineSave.Size = new Size(186, 37);
+            buttonModalEditMedicineSave.TabIndex = 32;
+            buttonModalEditMedicineSave.Text = "Enregistrer";
+            buttonModalEditMedicineSave.UseVisualStyleBackColor = true;
+            buttonModalEditMedicineSave.Click += buttonModalEditMedicineSave_Click;
             // 
-            // textBox4
+            // textBoxModalEditMedicineMolecule
             // 
-            textBox4.Location = new Point(12, 321);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(192, 27);
-            textBox4.TabIndex = 31;
+            textBoxModalEditMedicineMolecule.Location = new Point(12, 321);
+            textBoxModalEditMedicineMolecule.Name = "textBoxModalEditMedicineMolecule";
+            textBoxModalEditMedicineMolecule.Size = new Size(192, 27);
+            textBoxModalEditMedicineMolecule.TabIndex = 31;
             // 
             // label5
             // 
@@ -68,12 +69,12 @@
             label5.TabIndex = 30;
             label5.Text = "Molécule";
             // 
-            // textBox3
+            // textBoxModalEditMedicineDescription
             // 
-            textBox3.Location = new Point(12, 246);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(354, 27);
-            textBox3.TabIndex = 29;
+            textBoxModalEditMedicineDescription.Location = new Point(12, 246);
+            textBoxModalEditMedicineDescription.Name = "textBoxModalEditMedicineDescription";
+            textBoxModalEditMedicineDescription.Size = new Size(354, 27);
+            textBoxModalEditMedicineDescription.TabIndex = 29;
             // 
             // label4
             // 
@@ -84,27 +85,27 @@
             label4.TabIndex = 28;
             label4.Text = "Description";
             // 
-            // comboBox2
+            // comboBoxModalEditMedicineDosageMesure
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(143, 167);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(61, 28);
-            comboBox2.TabIndex = 27;
+            comboBoxModalEditMedicineDosageMesure.FormattingEnabled = true;
+            comboBoxModalEditMedicineDosageMesure.Location = new Point(143, 167);
+            comboBoxModalEditMedicineDosageMesure.Name = "comboBoxModalEditMedicineDosageMesure";
+            comboBoxModalEditMedicineDosageMesure.Size = new Size(61, 28);
+            comboBoxModalEditMedicineDosageMesure.TabIndex = 27;
             // 
-            // textBox2
+            // textBoxModalEditMedicineDosage
             // 
-            textBox2.Location = new Point(12, 167);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 26;
+            textBoxModalEditMedicineDosage.Location = new Point(12, 167);
+            textBoxModalEditMedicineDosage.Name = "textBoxModalEditMedicineDosage";
+            textBoxModalEditMedicineDosage.Size = new Size(125, 27);
+            textBoxModalEditMedicineDosage.TabIndex = 26;
             // 
-            // textBox1
+            // textBoxModalEditMedicineName
             // 
-            textBox1.Location = new Point(12, 92);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(192, 27);
-            textBox1.TabIndex = 25;
+            textBoxModalEditMedicineName.Location = new Point(12, 92);
+            textBoxModalEditMedicineName.Name = "textBoxModalEditMedicineName";
+            textBoxModalEditMedicineName.Size = new Size(192, 27);
+            textBoxModalEditMedicineName.TabIndex = 25;
             // 
             // label3
             // 
@@ -134,53 +135,55 @@
             label1.TabIndex = 22;
             label1.Text = "Modification d'un médicament";
             // 
-            // button2
+            // buttonModalEditMedicineDelete
             // 
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.Red;
-            button2.Location = new Point(11, 397);
-            button2.Name = "button2";
-            button2.Size = new Size(186, 37);
-            button2.TabIndex = 33;
-            button2.Text = "Supprimer";
-            button2.UseVisualStyleBackColor = true;
+            buttonModalEditMedicineDelete.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonModalEditMedicineDelete.ForeColor = Color.Red;
+            buttonModalEditMedicineDelete.Location = new Point(11, 397);
+            buttonModalEditMedicineDelete.Name = "buttonModalEditMedicineDelete";
+            buttonModalEditMedicineDelete.Size = new Size(186, 37);
+            buttonModalEditMedicineDelete.TabIndex = 33;
+            buttonModalEditMedicineDelete.Text = "Supprimer";
+            buttonModalEditMedicineDelete.UseVisualStyleBackColor = true;
+            buttonModalEditMedicineDelete.Click += buttonModalEditMedicineDelete_Click;
             // 
             // ModalEditMedicine
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(401, 446);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox4);
+            Controls.Add(buttonModalEditMedicineDelete);
+            Controls.Add(buttonModalEditMedicineSave);
+            Controls.Add(textBoxModalEditMedicineMolecule);
             Controls.Add(label5);
-            Controls.Add(textBox3);
+            Controls.Add(textBoxModalEditMedicineDescription);
             Controls.Add(label4);
-            Controls.Add(comboBox2);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(comboBoxModalEditMedicineDosageMesure);
+            Controls.Add(textBoxModalEditMedicineDosage);
+            Controls.Add(textBoxModalEditMedicineName);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "ModalEditMedicine";
             Text = "ModalEditMedicine";
+            Load += ModalEditMedicine_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
-        private TextBox textBox4;
+        private Button buttonModalEditMedicineSave;
+        private TextBox textBoxModalEditMedicineMolecule;
         private Label label5;
-        private TextBox textBox3;
+        private TextBox textBoxModalEditMedicineDescription;
         private Label label4;
-        private ComboBox comboBox2;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private ComboBox comboBoxModalEditMedicineDosageMesure;
+        private TextBox textBoxModalEditMedicineDosage;
+        private TextBox textBoxModalEditMedicineName;
         private Label label3;
         private Label label2;
         private Label label1;
-        private Button button2;
+        private Button buttonModalEditMedicineDelete;
     }
 }

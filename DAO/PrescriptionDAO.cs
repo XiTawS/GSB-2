@@ -132,5 +132,51 @@ namespace GSB_2.DAO
             }
             return "Médicament inconnu";
         }
+        public bool Update(int idPrescription, int id_patient, DateTime validity, List<(int id_medicine, int quantity)> medicines)
+        {
+            string medicinesText = "";
+            for (int i = 0; i < medicines.Count; i++)
+            {
+                var (id_med, qty) = medicines[i];
+                string nomEtDosage = GetNomEtDosageDuMedicament(id_med);
+                if (i > 0) medicinesText += ", ";
+                medicinesText += $"{nomEtDosage} x{qty}";
+            }
+            if (string.IsNullOrEmpty(medicinesText))
+                medicinesText = "Aucun médicament";
+
+            string query = @"UPDATE Prescription
+                     SET id_patient = @id_patient,
+                         medicines = @medicines,
+                         validity = @validity
+                     WHERE id_prescription = @id";
+
+            using (var conn = db.GetConnection())
+            {
+                conn.Open();
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idPrescription);
+                    cmd.Parameters.AddWithValue("@id_patient", id_patient);
+                    cmd.Parameters.AddWithValue("@medicines", medicinesText);
+                    cmd.Parameters.AddWithValue("@validity", validity.Date);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+        public bool Delete(int idPrescription)
+        {
+            string query = "DELETE FROM Prescription WHERE id_prescription = @id";
+            using (var conn = db.GetConnection())
+            {
+                conn.Open();
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idPrescription);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
     }
 }

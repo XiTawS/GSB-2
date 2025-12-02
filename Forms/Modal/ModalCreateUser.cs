@@ -60,6 +60,7 @@ namespace GSB_2.Forms.Modal
                     MessageBox.Show("Utilisateur créé avec succès !", "Succès",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearFields();
+                    this.Close();
                 }
                 else
                 {

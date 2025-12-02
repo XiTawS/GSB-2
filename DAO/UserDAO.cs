@@ -119,5 +119,99 @@ namespace GSB_2.DAO
                 }
             }
         }
+        public User? GetById(int idUser)
+        {
+            using (var conn = db.GetConnection())
+            {
+                conn.Open();
+                string sql = @"SELECT id_user, name, firstname, email, password, role 
+                       FROM User 
+                       WHERE id_user = @id";
+
+                using (var cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idUser);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new User
+                            {
+                                Id = reader.GetInt32("id_user"),
+                                Name = reader.GetString("name"),
+                                Firstname = reader.GetString("firstname"),
+                                Email = reader.GetString("email"),
+                                Password = reader.GetString("password"),
+                                Role = reader.GetBoolean("role")       
+                            };
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+        public bool Update(int idUser, string name, string firstname, string email, string plainPassword, bool role)
+        {
+            // Si le mot de passe est vide → on ne le change pas
+            string sql = string.IsNullOrEmpty(plainPassword)
+                ? "UPDATE User SET name = @name, firstname = @firstname, email = @email, role = @role WHERE id_user = @id"
+                : "UPDATE User SET name = @name, firstname = @firstname, email = @email, password = @password, role = @role WHERE id_user = @id";
+
+            using (var conn = db.GetConnection())
+            {
+                conn.Open();
+                using (var cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idUser);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@firstname", firstname);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@role", role);
+
+                    if (!string.IsNullOrEmpty(plainPassword))
+                    {
+                        string hashedPassword = HashPassword(plainPassword);
+                        cmd.Parameters.AddWithValue("@password", hashedPassword);
+                    }
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+        public bool Delete(int idUser)
+        {
+            string sql = "DELETE FROM User WHERE id_user = @id";
+
+            using (var conn = db.GetConnection())
+            {
+                conn.Open();
+                using (var cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idUser);
+
+                    try
+                    {
+                        return cmd.ExecuteNonQuery() > 0;
+                    }
+                    catch (MySqlException ex) when (ex.Number == 1451) // Contrainte de clé étrangère
+                    {
+                        return false;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        private string HashPassword(string password)
+        {
+            using (var sha256 = System.Security.Cryptography.SHA256.Create())
+            {
+                byte[] hashBytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLowerInvariant();
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using GSB_2.Models;
 using MySql.Data.MySqlClient;
      using System;
+using System.Data;
 
 namespace GSB_2.DAO
 {
@@ -22,10 +23,12 @@ namespace GSB_2.DAO
                 try
                 {
                     connection.Open();
-
                     MySqlCommand myCommand = new MySqlCommand();
                     myCommand.Connection = connection;
-                    myCommand.CommandText = @"SELECT * FROM Patient";
+                    myCommand.CommandText = @"SELECT id_patient, id_user, name, firstname, age, gender 
+                                      FROM Patient 
+                                      WHERE id_patient = @id";
+                    myCommand.Parameters.AddWithValue("@id", idPatient);
 
                     using var myReader = myCommand.ExecuteReader();
                     {
@@ -34,22 +37,21 @@ namespace GSB_2.DAO
                             id_patient = myReader.GetInt32("id_patient");
                             id_user = myReader.GetInt32("id_user");
                             name = myReader.GetString("name");
-                            age = myReader.GetInt32("age");
                             firstname = myReader.GetString("firstname");
+                            age = myReader.GetInt32("age");
                             gender = myReader.GetString("gender");
 
                             return new Patient(id_patient, id_user, name, age, firstname, gender);
                         }
                         else
                         {
-                            connection.Close();
                             return null;
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("Erreur GetById Patient : " + ex.Message);
                     return null;
                 }
             }
@@ -110,6 +112,56 @@ namespace GSB_2.DAO
                     cmd.Parameters.AddWithValue("@gender", gender);
 
                     return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+        public bool Update(Patient patient)
+        {
+            string sql = @"UPDATE Patient 
+                           SET name = @name, 
+                               firstname = @firstname, 
+                               age = @age, 
+                               gender = @gender 
+                           WHERE id_patient = @id";
+
+            using (var conn = db.GetConnection())
+            {
+                conn.Open();
+                using (var cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", patient.IdPatient);
+                    cmd.Parameters.AddWithValue("@name", patient.Name);
+                    cmd.Parameters.AddWithValue("@firstname", patient.Firstname);
+                    cmd.Parameters.AddWithValue("@age", patient.Age);
+                    cmd.Parameters.AddWithValue("@gender", string.IsNullOrEmpty(patient.Gender) ? (object)DBNull.Value : patient.Gender);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+        public bool Delete(int idPatient)
+        {
+            string sql = "DELETE FROM Patient WHERE id_patient = @id";
+
+            using (var conn = db.GetConnection())
+            {
+                conn.Open();
+                using (var cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idPatient);
+
+                    try
+                    {
+                        return cmd.ExecuteNonQuery() > 0;
+                    }
+                    catch (MySqlException ex) when (ex.Number == 1451) // Contrainte FK
+                    {
+                        return false;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
                 }
             }
         }

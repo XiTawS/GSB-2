@@ -37,6 +37,7 @@
             textBox2 = new TextBox();
             label3 = new Label();
             dataGridViewLaboListUser = new DataGridView();
+            buttonViewLaboDeconnexion = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewLaboListMedicine).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewLaboListUser).BeginInit();
             SuspendLayout();
@@ -88,6 +89,7 @@
             dataGridViewLaboListMedicine.RowHeadersWidth = 82;
             dataGridViewLaboListMedicine.Size = new Size(517, 440);
             dataGridViewLaboListMedicine.TabIndex = 11;
+            dataGridViewLaboListMedicine.CellDoubleClick += dataGridViewLaboListMedicine_CellDoubleClick;
             // 
             // buttonCreateUser
             // 
@@ -126,12 +128,25 @@
             dataGridViewLaboListUser.RowHeadersWidth = 82;
             dataGridViewLaboListUser.Size = new Size(517, 440);
             dataGridViewLaboListUser.TabIndex = 15;
+            dataGridViewLaboListUser.CellDoubleClick += dataGridViewLaboListUser_CellDoubleClick;
+            // 
+            // buttonViewLaboDeconnexion
+            // 
+            buttonViewLaboDeconnexion.ForeColor = Color.Red;
+            buttonViewLaboDeconnexion.Location = new Point(994, 12);
+            buttonViewLaboDeconnexion.Name = "buttonViewLaboDeconnexion";
+            buttonViewLaboDeconnexion.Size = new Size(104, 29);
+            buttonViewLaboDeconnexion.TabIndex = 19;
+            buttonViewLaboDeconnexion.Text = "Déconnexion";
+            buttonViewLaboDeconnexion.UseVisualStyleBackColor = true;
+            buttonViewLaboDeconnexion.Click += buttonViewLaboDeconnexion_Click;
             // 
             // FormLabo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1110, 679);
+            Controls.Add(buttonViewLaboDeconnexion);
             Controls.Add(buttonCreateUser);
             Controls.Add(textBox2);
             Controls.Add(label3);
@@ -144,7 +159,6 @@
             Margin = new Padding(2);
             Name = "FormLabo";
             Text = "FormAdmin";
-            Load += FormAdmin_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewLaboListMedicine).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewLaboListUser).EndInit();
             ResumeLayout(false);
@@ -162,5 +176,6 @@
         private TextBox textBox2;
         private Label label3;
         private DataGridView dataGridViewLaboListUser;
+        private Button buttonViewLaboDeconnexion;
     }
 }

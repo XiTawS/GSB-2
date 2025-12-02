@@ -8,9 +8,9 @@ namespace GSB_2.Models
 {
     internal class Medicine
     {
-        public int Id { get; set; }
+        public int IdMedicine { get; set; }
         public int IdUser { get; set; }
-        public int Dosage { get; set; }
+        public string Dosage { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Molecule { get; set; }
@@ -18,9 +18,9 @@ namespace GSB_2.Models
 
         public Medicine() { }
 
-        public Medicine(int Id, int IdUser, int Dosage, string Name, string Description, string Molecule)
+        public Medicine(int IdMedicine, int IdUser, string Dosage, string Name, string Description, string Molecule)
         {
-            this.Id = Id;
+            this.IdMedicine = IdMedicine;
             this.IdUser = IdUser;
             this.Dosage = Dosage;
             this.Name = Name;

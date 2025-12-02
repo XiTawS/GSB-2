@@ -28,48 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
+            textBoxModalEditPatientFirstName = new TextBox();
+            textBoxModalEditPatientName = new TextBox();
+            comboBoxModalEditPatientAge = new ComboBox();
+            comboBoxModalEditPatientGender = new ComboBox();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            button2 = new Button();
-            button1 = new Button();
+            buttonModalEditPatientDelete = new Button();
+            buttonModalEditPatientSave = new Button();
             SuspendLayout();
             // 
-            // textBox2
+            // textBoxModalEditPatientFirstName
             // 
-            textBox2.Location = new Point(12, 158);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 20;
+            textBoxModalEditPatientFirstName.Location = new Point(12, 158);
+            textBoxModalEditPatientFirstName.Name = "textBoxModalEditPatientFirstName";
+            textBoxModalEditPatientFirstName.Size = new Size(125, 27);
+            textBoxModalEditPatientFirstName.TabIndex = 20;
             // 
-            // textBox1
+            // textBoxModalEditPatientName
             // 
-            textBox1.Location = new Point(12, 83);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 19;
+            textBoxModalEditPatientName.Location = new Point(12, 83);
+            textBoxModalEditPatientName.Name = "textBoxModalEditPatientName";
+            textBoxModalEditPatientName.Size = new Size(125, 27);
+            textBoxModalEditPatientName.TabIndex = 19;
             // 
-            // comboBox2
+            // comboBoxModalEditPatientAge
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(12, 232);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(61, 28);
-            comboBox2.TabIndex = 18;
+            comboBoxModalEditPatientAge.FormattingEnabled = true;
+            comboBoxModalEditPatientAge.Location = new Point(12, 232);
+            comboBoxModalEditPatientAge.Name = "comboBoxModalEditPatientAge";
+            comboBoxModalEditPatientAge.Size = new Size(61, 28);
+            comboBoxModalEditPatientAge.TabIndex = 18;
             // 
-            // comboBox1
+            // comboBoxModalEditPatientGender
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(12, 309);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(161, 28);
-            comboBox1.TabIndex = 17;
+            comboBoxModalEditPatientGender.FormattingEnabled = true;
+            comboBoxModalEditPatientGender.Location = new Point(12, 309);
+            comboBoxModalEditPatientGender.Name = "comboBoxModalEditPatientGender";
+            comboBoxModalEditPatientGender.Size = new Size(161, 28);
+            comboBoxModalEditPatientGender.TabIndex = 17;
             // 
             // label5
             // 
@@ -117,38 +117,40 @@
             label1.TabIndex = 11;
             label1.Text = "Modification d'un patient";
             // 
-            // button2
+            // buttonModalEditPatientDelete
             // 
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.Red;
-            button2.Location = new Point(12, 371);
-            button2.Name = "button2";
-            button2.Size = new Size(125, 37);
-            button2.TabIndex = 35;
-            button2.Text = "Supprimer";
-            button2.UseVisualStyleBackColor = true;
+            buttonModalEditPatientDelete.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonModalEditPatientDelete.ForeColor = Color.Red;
+            buttonModalEditPatientDelete.Location = new Point(12, 371);
+            buttonModalEditPatientDelete.Name = "buttonModalEditPatientDelete";
+            buttonModalEditPatientDelete.Size = new Size(125, 37);
+            buttonModalEditPatientDelete.TabIndex = 35;
+            buttonModalEditPatientDelete.Text = "Supprimer";
+            buttonModalEditPatientDelete.UseVisualStyleBackColor = true;
+            buttonModalEditPatientDelete.Click += buttonModalEditPatientDelete_Click;
             // 
-            // button1
+            // buttonModalEditPatientSave
             // 
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(158, 371);
-            button1.Name = "button1";
-            button1.Size = new Size(122, 37);
-            button1.TabIndex = 34;
-            button1.Text = "Enregistrer";
-            button1.UseVisualStyleBackColor = true;
+            buttonModalEditPatientSave.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonModalEditPatientSave.Location = new Point(158, 371);
+            buttonModalEditPatientSave.Name = "buttonModalEditPatientSave";
+            buttonModalEditPatientSave.Size = new Size(122, 37);
+            buttonModalEditPatientSave.TabIndex = 34;
+            buttonModalEditPatientSave.Text = "Enregistrer";
+            buttonModalEditPatientSave.UseVisualStyleBackColor = true;
+            buttonModalEditPatientSave.Click += buttonModalEditPatientSave_Click;
             // 
             // ModalEditPatient
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(292, 420);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
+            Controls.Add(buttonModalEditPatientDelete);
+            Controls.Add(buttonModalEditPatientSave);
+            Controls.Add(textBoxModalEditPatientFirstName);
+            Controls.Add(textBoxModalEditPatientName);
+            Controls.Add(comboBoxModalEditPatientAge);
+            Controls.Add(comboBoxModalEditPatientGender);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -156,22 +158,23 @@
             Controls.Add(label1);
             Name = "ModalEditPatient";
             Text = "ModalEditPatient";
+            Load += ModalEditPatient_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
+        private TextBox textBoxModalEditPatientFirstName;
+        private TextBox textBoxModalEditPatientName;
+        private ComboBox comboBoxModalEditPatientAge;
+        private ComboBox comboBoxModalEditPatientGender;
         private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
-        private Button button2;
-        private Button button1;
+        private Button buttonModalEditPatientDelete;
+        private Button buttonModalEditPatientSave;
     }
 }

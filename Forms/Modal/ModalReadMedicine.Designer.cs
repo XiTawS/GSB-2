@@ -28,36 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button2 = new Button();
-            textBox4 = new TextBox();
+            buttonModalReadMedicineBack = new Button();
+            textBoxModalReadMedicineMolécule = new TextBox();
             label5 = new Label();
-            textBox3 = new TextBox();
+            textBoxModalReadMedicineDescription = new TextBox();
             label4 = new Label();
-            comboBox2 = new ComboBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            comboBoxModalReadMedicineDosageMesure = new ComboBox();
+            textBoxModalReadMedicineDosage = new TextBox();
+            textBoxModalReadMedicineName = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             SuspendLayout();
             // 
-            // button2
+            // buttonModalReadMedicineBack
             // 
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.Black;
-            button2.Location = new Point(11, 397);
-            button2.Name = "button2";
-            button2.Size = new Size(134, 37);
-            button2.TabIndex = 45;
-            button2.Text = "<- Retour";
-            button2.UseVisualStyleBackColor = true;
+            buttonModalReadMedicineBack.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonModalReadMedicineBack.ForeColor = Color.Black;
+            buttonModalReadMedicineBack.Location = new Point(11, 397);
+            buttonModalReadMedicineBack.Name = "buttonModalReadMedicineBack";
+            buttonModalReadMedicineBack.Size = new Size(134, 37);
+            buttonModalReadMedicineBack.TabIndex = 45;
+            buttonModalReadMedicineBack.Text = "<- Retour";
+            buttonModalReadMedicineBack.UseVisualStyleBackColor = true;
+            buttonModalReadMedicineBack.Click += buttonModalReadMedicineBack_Click;
             // 
-            // textBox4
+            // textBoxModalReadMedicineMolécule
             // 
-            textBox4.Location = new Point(12, 321);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(192, 27);
-            textBox4.TabIndex = 43;
+            textBoxModalReadMedicineMolécule.Location = new Point(12, 321);
+            textBoxModalReadMedicineMolécule.Name = "textBoxModalReadMedicineMolécule";
+            textBoxModalReadMedicineMolécule.Size = new Size(192, 27);
+            textBoxModalReadMedicineMolécule.TabIndex = 43;
             // 
             // label5
             // 
@@ -68,12 +69,12 @@
             label5.TabIndex = 42;
             label5.Text = "Molécule";
             // 
-            // textBox3
+            // textBoxModalReadMedicineDescription
             // 
-            textBox3.Location = new Point(12, 246);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(354, 27);
-            textBox3.TabIndex = 41;
+            textBoxModalReadMedicineDescription.Location = new Point(12, 246);
+            textBoxModalReadMedicineDescription.Name = "textBoxModalReadMedicineDescription";
+            textBoxModalReadMedicineDescription.Size = new Size(354, 27);
+            textBoxModalReadMedicineDescription.TabIndex = 41;
             // 
             // label4
             // 
@@ -84,27 +85,27 @@
             label4.TabIndex = 40;
             label4.Text = "Description";
             // 
-            // comboBox2
+            // comboBoxModalReadMedicineDosageMesure
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(143, 167);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(61, 28);
-            comboBox2.TabIndex = 39;
+            comboBoxModalReadMedicineDosageMesure.FormattingEnabled = true;
+            comboBoxModalReadMedicineDosageMesure.Location = new Point(143, 167);
+            comboBoxModalReadMedicineDosageMesure.Name = "comboBoxModalReadMedicineDosageMesure";
+            comboBoxModalReadMedicineDosageMesure.Size = new Size(61, 28);
+            comboBoxModalReadMedicineDosageMesure.TabIndex = 39;
             // 
-            // textBox2
+            // textBoxModalReadMedicineDosage
             // 
-            textBox2.Location = new Point(12, 167);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 38;
+            textBoxModalReadMedicineDosage.Location = new Point(12, 167);
+            textBoxModalReadMedicineDosage.Name = "textBoxModalReadMedicineDosage";
+            textBoxModalReadMedicineDosage.Size = new Size(125, 27);
+            textBoxModalReadMedicineDosage.TabIndex = 38;
             // 
-            // textBox1
+            // textBoxModalReadMedicineName
             // 
-            textBox1.Location = new Point(12, 92);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(192, 27);
-            textBox1.TabIndex = 37;
+            textBoxModalReadMedicineName.Location = new Point(12, 92);
+            textBoxModalReadMedicineName.Name = "textBoxModalReadMedicineName";
+            textBoxModalReadMedicineName.Size = new Size(192, 27);
+            textBoxModalReadMedicineName.TabIndex = 37;
             // 
             // label3
             // 
@@ -139,33 +140,34 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(401, 450);
-            Controls.Add(button2);
-            Controls.Add(textBox4);
+            Controls.Add(buttonModalReadMedicineBack);
+            Controls.Add(textBoxModalReadMedicineMolécule);
             Controls.Add(label5);
-            Controls.Add(textBox3);
+            Controls.Add(textBoxModalReadMedicineDescription);
             Controls.Add(label4);
-            Controls.Add(comboBox2);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(comboBoxModalReadMedicineDosageMesure);
+            Controls.Add(textBoxModalReadMedicineDosage);
+            Controls.Add(textBoxModalReadMedicineName);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "ModalReadMedicine";
             Text = "ModalReadMedicine";
+            Load += ModalReadMedicine_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button button2;
-        private TextBox textBox4;
+        private Button buttonModalReadMedicineBack;
+        private TextBox textBoxModalReadMedicineMolécule;
         private Label label5;
-        private TextBox textBox3;
+        private TextBox textBoxModalReadMedicineDescription;
         private Label label4;
-        private ComboBox comboBox2;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private ComboBox comboBoxModalReadMedicineDosageMesure;
+        private TextBox textBoxModalReadMedicineDosage;
+        private TextBox textBoxModalReadMedicineName;
         private Label label3;
         private Label label2;
         private Label label1;
