@@ -31,8 +31,9 @@ namespace GSB_2.DAO
                         {
                             int id_medicine = myReader.GetInt32("id_medicine");
                             int id_prescription = myReader.GetInt32("id_prescription");
+                            int quantity = myReader.GetInt32("quantity");
 
-                            list.Add(new Appartient(id_medicine, id_prescription));
+                            list.Add(new Appartient(id_medicine, id_prescription, quantity));
                         }
 
                         connection.Close();

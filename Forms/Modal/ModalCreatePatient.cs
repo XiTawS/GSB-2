@@ -75,6 +75,7 @@ namespace GSB_2.Forms.Modal
                     MessageBox.Show("Patient créé avec succès !", "Succès",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearPatientFields();
+                    this.Close();
                 }
                 else
                 {

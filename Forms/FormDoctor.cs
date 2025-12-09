@@ -42,9 +42,10 @@ namespace GSB_2.Forms
 
             // ── ORDONNANCES ──
             PrescriptionDAO prescriptionDAO = new PrescriptionDAO();
-            List<Prescription> prescriptionList = prescriptionDAO.GetAll();
+            var ordonnances = prescriptionDAO.GetAll();
+
             dataGridViewDoctorListPrescription.DataSource = null;
-            dataGridViewDoctorListPrescription.DataSource = prescriptionList;
+            dataGridViewDoctorListPrescription.DataSource = ordonnances;
         }
 
         private void buttonCreatePatient_Click(object sender, EventArgs e)
@@ -62,7 +63,7 @@ namespace GSB_2.Forms
             if (e.RowIndex < 0 || dataGridViewDoctorListPatient.CurrentRow == null) return;
 
             int idPatient = Convert.ToInt32(dataGridViewDoctorListPatient.CurrentRow.Cells["IdPatient"].Value);
-            new ModalEditPatient(idPatient).ShowDialog();
+            new ModalDetailsPatient(idPatient).ShowDialog();
         }
 
         private void dataGridViewDoctorListPrescription_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

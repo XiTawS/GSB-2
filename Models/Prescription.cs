@@ -1,31 +1,38 @@
-﻿using Org.BouncyCastle.Asn1.X509;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿// GSB_2/Models/Prescription.cs
 namespace GSB_2.Models
 {
-    internal class Prescription
+    public class Prescription
     {
         public int IdPrescription { get; set; }
         public int IdUser { get; set; }
+        public int IdPatient { get; set; }
         public DateTime Validity { get; set; }
-        public string Medicines { get; set; }
-        public int idPatient { get; set; }
 
-        public Prescription() { }
+        // Propriétés d’affichage (remplies par le DAO)
+        public string Patient { get; set; } = "";
+        public string Médecin { get; set; } = "";
+        public string Médicaments { get; set; } = "";
 
-        public Prescription(int id_prescription, int id_user, DateTime validity,string medicines, int id_patient) 
+        // Constructeur pour lire depuis la BDD (4 paramètres)
+        public Prescription(int idPrescription, int idUser, int idPatient, DateTime validity)
         {
-            this.IdPrescription = id_prescription;
-            this.IdUser = id_user;
-            this.Validity = validity;
-            this.Medicines = medicines;
-            this.idPatient = id_patient;
+            IdPrescription = idPrescription;
+            IdUser = idUser;
+            IdPatient = idPatient;
+            Validity = validity;
         }
 
+        // Constructeur pour créer une nouvelle ordonnance (3 paramètres) ← C’EST CELUI QUI MANQUAIT !
+        public Prescription(int idUser, int idPatient, DateTime validity)
+        {
+            IdUser = idUser;
+            IdPatient = idPatient;
+            Validity = validity;
+        }
 
+        public override string ToString()
+        {
+            return $"N°{IdPrescription} - {Patient} - {Validity:dd/MM/yyyy}";
+        }
     }
 }

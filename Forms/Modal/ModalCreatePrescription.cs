@@ -1,4 +1,5 @@
-﻿using GSB_2.DAO;
+﻿// GSB_2/Forms/Modal/ModalCreatePrescription.cs
+using GSB_2.DAO;
 using GSB_2.Models;
 using MySql.Data.MySqlClient;
 using System;
@@ -10,10 +11,10 @@ namespace GSB_2.Forms.Modal
     public partial class ModalCreatePrescription : Form
     {
         private readonly Database db = new Database();
+        private readonly PrescriptionDAO dao = new PrescriptionDAO();
 
-        // Dictionnaires pour retrouver l'ID à partir du texte affiché
-        private Dictionary<string, int> patientIdParNom = new Dictionary<string, int>();
-        private Dictionary<string, int> medicineIdParTexte = new Dictionary<string, int>();
+        private readonly Dictionary<string, int> patients = new();
+        private readonly Dictionary<string, int> medicines = new();
 
         public ModalCreatePrescription()
         {
@@ -22,102 +23,70 @@ namespace GSB_2.Forms.Modal
 
         private void ModalCreatePrescription_Load(object sender, EventArgs e)
         {
-            // 1. Afficher seulement la première ligne
-            AfficherLigne(1);
-            CacherLigne(2);
-            CacherLigne(3);
-            CacherLigne(4);
-            CacherLigne(5);
+            monthCalendarPrescriptionValidity.SelectionStart = DateTime.Today;
+            monthCalendarPrescriptionValidity.SelectionEnd = DateTime.Today;
 
-            // 2. Charger les données (proprement)
-            ChargerPatients_Propre();
-            ChargerMedicaments_Propre();
+            ChargerPatients();
+            ChargerMedicaments();
 
-            // 3. Valeur par défaut pour les quantités
+            // Quantités par défaut
             comboBoxPrescriptionMédicineQuantity1.Text = "1";
             comboBoxPrescriptionMédicineQuantity2.Text = "1";
             comboBoxPrescriptionMédicineQuantity3.Text = "1";
             comboBoxPrescriptionMédicineQuantity4.Text = "1";
             comboBoxPrescriptionMédicineQuantity5.Text = "1";
 
-            // 4. Boutons "+"
-            buttonPrescriptionAddMedicine1.Click += BoutonPlus_Click;
-            buttonPrescriptionAddMedicine2.Click += BoutonPlus_Click;
-            buttonPrescriptionAddMedicine3.Click += BoutonPlus_Click;
-            buttonPrescriptionAddMedicine4.Click += BoutonPlus_Click;
-        }
-
-        private void AfficherLigne(int numero)
-        {
-            switch (numero)
-            {
-                case 1: comboBoxPrescriptionListMédicineName1.Visible = true; comboBoxPrescriptionMédicineQuantity1.Visible = true; buttonPrescriptionAddMedicine1.Visible = true; break;
-                case 2: comboBoxPrescriptionListMédicineName2.Visible = true; comboBoxPrescriptionMédicineQuantity2.Visible = true; buttonPrescriptionAddMedicine2.Visible = true; break;
-                case 3: comboBoxPrescriptionListMédicineName3.Visible = true; comboBoxPrescriptionMédicineQuantity3.Visible = true; buttonPrescriptionAddMedicine3.Visible = true; break;
-                case 4: comboBoxPrescriptionListMédicineName4.Visible = true; comboBoxPrescriptionMédicineQuantity4.Visible = true; buttonPrescriptionAddMedicine4.Visible = true; break;
-                case 5: comboBoxPrescriptionListMédicineName5.Visible = true; comboBoxPrescriptionMédicineQuantity5.Visible = true; break;
-            }
-        }
-
-        private void CacherLigne(int numero)
-        {
-            switch (numero)
-            {
-                case 2: comboBoxPrescriptionListMédicineName2.Visible = false; comboBoxPrescriptionMédicineQuantity2.Visible = false; buttonPrescriptionAddMedicine2.Visible = false; break;
-                case 3: comboBoxPrescriptionListMédicineName3.Visible = false; comboBoxPrescriptionMédicineQuantity3.Visible = false; buttonPrescriptionAddMedicine3.Visible = false; break;
-                case 4: comboBoxPrescriptionListMédicineName4.Visible = false; comboBoxPrescriptionMédicineQuantity4.Visible = false; buttonPrescriptionAddMedicine4.Visible = false; break;
-                case 5: comboBoxPrescriptionListMédicineName5.Visible = false; comboBoxPrescriptionMédicineQuantity5.Visible = false; break;
-            }
-        }
-
-        private void BoutonPlus_Click(object sender, EventArgs e)
-        {
-            if (sender == buttonPrescriptionAddMedicine1) AfficherLigne(2);
-            else if (sender == buttonPrescriptionAddMedicine2) AfficherLigne(3);
-            else if (sender == buttonPrescriptionAddMedicine3) AfficherLigne(4);
-            else if (sender == buttonPrescriptionAddMedicine4)
+            // Boutons +
+            buttonPrescriptionAddMedicine1.Click += (_, __) => AfficherLigne(2);
+            buttonPrescriptionAddMedicine2.Click += (_, __) => AfficherLigne(3);
+            buttonPrescriptionAddMedicine3.Click += (_, __) => AfficherLigne(4);
+            buttonPrescriptionAddMedicine4.Click += (_, __) =>
             {
                 AfficherLigne(5);
                 buttonPrescriptionAddMedicine4.Visible = false;
-            }
+            };
+
+            // On cache toutes les lignes sauf la première
+            CacherLignes(2, 3, 4, 5);
         }
 
-        // PATIENTS : on affiche seulement "Nom Prénom"
-        private void ChargerPatients_Propre()
+        private void ChargerPatients()
         {
-            patientIdParNom.Clear();
+            patients.Clear();
             comboBoxPrescriptionListPatient.Items.Clear();
 
-            int docteurId = 1; // plus tard : Session.UserId
+            string sql = "SELECT id_patient, name, firstname FROM Patient ORDER BY name, firstname";
+            // Décommente la ligne ci-dessous si tu veux filtrer par médecin connecté
+            // string sql = "SELECT id_patient, name, firstname FROM Patient WHERE id_user = @id_user ORDER BY name, firstname";
 
-            string sql = "SELECT id_patient, name, firstname FROM Patient WHERE id_user = @id ORDER BY name, firstname";
-
-            using (MySqlConnection conn = db.GetConnection())
+            try
             {
+                using var conn = db.GetConnection();
                 conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@id", docteurId);
-                    using (MySqlDataReader r = cmd.ExecuteReader())
-                    {
-                        while (r.Read())
-                        {
-                            int id = r.GetInt32("id_patient");
-                            string nomComplet = r.GetString("name") + " " + r.GetString("firstname");
+                using var cmd = new MySqlCommand(sql, conn);
+                // cmd.Parameters.AddWithValue("@id_user", User.Connected.Id); // si tu filtres
 
-                            comboBoxPrescriptionListPatient.Items.Add(nomComplet);
-                            patientIdParNom[nomComplet] = id; // on garde l'ID en mémoire
-                        }
-                    }
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string nom = $"{reader.GetString("name")} {reader.GetString("firstname")}";
+                    int id = reader.GetInt32("id_patient");
+                    comboBoxPrescriptionListPatient.Items.Add(nom);
+                    patients[nom] = id;
                 }
+
+                if (comboBoxPrescriptionListPatient.Items.Count > 0)
+                    comboBoxPrescriptionListPatient.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur chargement patients :\n" + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // MÉDICAMENTS : on affiche seulement "Nom (dosage mg) - Molécule"
-        private void ChargerMedicaments_Propre()
+        private void ChargerMedicaments()
         {
-            medicineIdParTexte.Clear();
-
+            medicines.Clear();
             var combos = new[]
             {
                 comboBoxPrescriptionListMédicineName1,
@@ -130,104 +99,171 @@ namespace GSB_2.Forms.Modal
             foreach (var cb in combos)
             {
                 cb.Items.Clear();
-                cb.Items.Add(""); // ligne vide
+                cb.Items.Add(""); // ligne vide pour pouvoir effacer
             }
 
-            string sql = "SELECT id_medicine, name, dosage, molecule FROM Medicine ORDER BY name";
-
-            using (MySqlConnection conn = db.GetConnection())
+            try
             {
+                using var conn = db.GetConnection();
                 conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                using (MySqlDataReader r = cmd.ExecuteReader())
+                using var cmd = new MySqlCommand("SELECT id_medicine, name, dosage, molecule FROM Medicine ORDER BY name", conn);
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    while (r.Read())
-                    {
-                        int id = r.GetInt32("id_medicine");
-                        string texte = $"{r.GetString("name")} ({r.GetInt32("dosage")} mg) - {r.GetString("molecule")}";
+                    string texte = $"{reader.GetString("name")} ({reader.GetString("dosage")}) - {reader.GetString("molecule")}";
+                    int id = reader.GetInt32("id_medicine");
+                    foreach (var cb in combos)
+                        cb.Items.Add(texte);
+                    medicines[texte] = id;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur chargement médicaments :\n" + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-                        foreach (var cb in combos)
-                        {
-                            cb.Items.Add(texte);
-                        }
-                        medicineIdParTexte[texte] = id;
-                    }
+        private void AfficherLigne(int numero)
+        {
+            switch (numero)
+            {
+                case 2:
+                    comboBoxPrescriptionListMédicineName2.Visible = true;
+                    comboBoxPrescriptionMédicineQuantity2.Visible = true;
+                    buttonPrescriptionAddMedicine2.Visible = true;
+                    break;
+                case 3:
+                    comboBoxPrescriptionListMédicineName3.Visible = true;
+                    comboBoxPrescriptionMédicineQuantity3.Visible = true;
+                    buttonPrescriptionAddMedicine3.Visible = true;
+                    break;
+                case 4:
+                    comboBoxPrescriptionListMédicineName4.Visible = true;
+                    comboBoxPrescriptionMédicineQuantity4.Visible = true;
+                    buttonPrescriptionAddMedicine4.Visible = true;
+                    break;
+                case 5:
+                    comboBoxPrescriptionListMédicineName5.Visible = true;
+                    comboBoxPrescriptionMédicineQuantity5.Visible = true;
+                    break;
+            }
+        }
+
+        private void CacherLignes(params int[] numeros)
+        {
+            foreach (int n in numeros)
+            {
+                switch (n)
+                {
+                    case 2:
+                        comboBoxPrescriptionListMédicineName2.Visible = false;
+                        comboBoxPrescriptionMédicineQuantity2.Visible = false;
+                        buttonPrescriptionAddMedicine2.Visible = false;
+                        comboBoxPrescriptionListMédicineName2.Text = "";
+                        comboBoxPrescriptionMédicineQuantity2.Text = "1";
+                        break;
+                    case 3:
+                        comboBoxPrescriptionListMédicineName3.Visible = false;
+                        comboBoxPrescriptionMédicineQuantity3.Visible = false;
+                        buttonPrescriptionAddMedicine3.Visible = false;
+                        comboBoxPrescriptionListMédicineName3.Text = "";
+                        comboBoxPrescriptionMédicineQuantity3.Text = "1";
+                        break;
+                    case 4:
+                        comboBoxPrescriptionListMédicineName4.Visible = false;
+                        comboBoxPrescriptionMédicineQuantity4.Visible = false;
+                        buttonPrescriptionAddMedicine4.Visible = false;
+                        comboBoxPrescriptionListMédicineName4.Text = "";
+                        comboBoxPrescriptionMédicineQuantity4.Text = "1";
+                        break;
+                    case 5:
+                        comboBoxPrescriptionListMédicineName5.Visible = false;
+                        comboBoxPrescriptionMédicineQuantity5.Visible = false;
+                        comboBoxPrescriptionListMédicineName5.Text = "";
+                        comboBoxPrescriptionMédicineQuantity5.Text = "1";
+                        break;
                 }
             }
         }
 
         private void buttonCreatePrescription_Click(object sender, EventArgs e)
         {
-            // Patient
-            if (comboBoxPrescriptionListPatient.SelectedItem == null || string.IsNullOrWhiteSpace(comboBoxPrescriptionListPatient.Text))
-            {
-                MessageBox.Show("Veuillez sélectionner un patient.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            int id_patient = patientIdParNom[comboBoxPrescriptionListPatient.Text];
-
-            // Date
-            DateTime validity = monthCalendarPrescriptionValidity.SelectionEnd.Date;
-            if (validity < DateTime.Today)
-            {
-                MessageBox.Show("La date doit être aujourd'hui ou dans le futur.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Médicaments
-            var medicaments = new List<(int id_med, int qty)>();
-
-            void AjouterLigne(ComboBox comboMed, TextBox txtQty)
-            {
-                if (comboMed.Visible && comboMed.SelectedIndex > 0)
-                {
-                    string texteMed = comboMed.Text;
-                    if (int.TryParse(txtQty.Text.Trim(), out int q) && q > 0 && medicineIdParTexte.ContainsKey(texteMed))
-                    {
-                        int id_med = medicineIdParTexte[texteMed];
-                        medicaments.Add((id_med, q));
-                    }
-                }
-            }
-
-            AjouterLigne(comboBoxPrescriptionListMédicineName1, comboBoxPrescriptionMédicineQuantity1);
-            AjouterLigne(comboBoxPrescriptionListMédicineName2, comboBoxPrescriptionMédicineQuantity2);
-            AjouterLigne(comboBoxPrescriptionListMédicineName3, comboBoxPrescriptionMédicineQuantity3);
-            AjouterLigne(comboBoxPrescriptionListMédicineName4, comboBoxPrescriptionMédicineQuantity4);
-            AjouterLigne(comboBoxPrescriptionListMédicineName5, comboBoxPrescriptionMédicineQuantity5);
-
-            if (medicaments.Count == 0)
-            {
-                MessageBox.Show("Ajoutez au moins un médicament avec une quantité.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Création
             try
             {
-                int docteurId = User.Connected.Id;
+                // Patient
+                if (string.IsNullOrWhiteSpace(comboBoxPrescriptionListPatient.Text) ||
+                    !patients.TryGetValue(comboBoxPrescriptionListPatient.Text.Trim(), out int idPatient))
+                {
+                    MessageBox.Show("Veuillez sélectionner un patient valide dans la liste.", "Patient requis", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-                bool ok = new PrescriptionDAO().CreatePrescription(
-                    id_user: docteurId,
-                    id_patient: id_patient,
-                    validity: validity,
-                    medicines: medicaments
-                );
+                // Date
+                DateTime validity = monthCalendarPrescriptionValidity.SelectionEnd.Date;
+                if (validity < DateTime.Today)
+                {
+                    MessageBox.Show("La date de validité doit être aujourd'hui ou dans le futur.", "Date invalide", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-                if (ok)
+                // Médicaments
+                var meds = new Dictionary<int, int>();
+
+                void AjouterSiValide(ComboBox cbName, TextBox tbQty)
+                {
+                    if (!cbName.Visible) return;
+                    string texte = cbName.Text.Trim();
+                    if (string.IsNullOrEmpty(texte)) return;
+
+                    if (!medicines.TryGetValue(texte, out int idMed))
+                    {
+                        MessageBox.Show($"Médicament non reconnu : {texte}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (!int.TryParse(tbQty.Text, out int qty) || qty <= 0)
+                    {
+                        MessageBox.Show($"Quantité invalide pour {texte}. Entrez un nombre positif.", "Quantité", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        tbQty.Focus();
+                        throw new InvalidOperationException("Quantité invalide");
+                    }
+
+                    meds[idMed] = meds.GetValueOrDefault(idMed) + qty;
+                }
+
+                AjouterSiValide(comboBoxPrescriptionListMédicineName1, comboBoxPrescriptionMédicineQuantity1);
+                AjouterSiValide(comboBoxPrescriptionListMédicineName2, comboBoxPrescriptionMédicineQuantity2);
+                AjouterSiValide(comboBoxPrescriptionListMédicineName3, comboBoxPrescriptionMédicineQuantity3);
+                AjouterSiValide(comboBoxPrescriptionListMédicineName4, comboBoxPrescriptionMédicineQuantity4);
+                AjouterSiValide(comboBoxPrescriptionListMédicineName5, comboBoxPrescriptionMédicineQuantity5);
+
+                if (meds.Count == 0)
+                {
+                    MessageBox.Show("Veuillez ajouter au moins un médicament avec une quantité valide.", "Médicaments manquants", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Création
+                var prescription = new Prescription(User.Connected.Id, idPatient, validity);
+
+                if (dao.Create(prescription, meds))
                 {
                     MessageBox.Show("Ordonnance créée avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    DialogResult = DialogResult.OK;
+                    Close();
                 }
                 else
                 {
-                    MessageBox.Show("Échec de la création.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Échec de la création de l'ordonnance.\n\nVérifiez votre connexion à la base de données.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+            catch (MySqlException mysqlEx)
+            {
+                MessageBox.Show($"Erreur base de données :\n{mysqlEx.Message}\n\nCode : {mysqlEx.Number}", "Erreur MySQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erreur : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erreur inattendue :\n{ex.Message}\n\nDétails techniques :\n{ex.StackTrace}", "Erreur critique", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

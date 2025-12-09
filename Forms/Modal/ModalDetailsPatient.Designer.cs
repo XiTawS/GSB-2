@@ -29,19 +29,16 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox1 = new TextBox();
-            label2 = new Label();
-            textBox2 = new TextBox();
-            label3 = new Label();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
+            textBoxModalDetailsPatientName = new TextBox();
+            textBoxModalDetailsPatientFirstName = new TextBox();
             label5 = new Label();
             label4 = new Label();
-            listBox1 = new ListBox();
             label6 = new Label();
-            button1 = new Button();
+            buttonModalDetailsPatientBack = new Button();
+            buttonModalDetailsPatientModify = new Button();
+            comboBoxModalDetailsPatientAge = new ComboBox();
+            comboBoxModalDetailsPatientGender = new ComboBox();
+            listBoxModalDetailsPatientListPrescription = new ListBox();
             SuspendLayout();
             // 
             // label1
@@ -54,72 +51,24 @@
             label1.TabIndex = 12;
             label1.Text = "Détails de : ";
             // 
-            // textBox4
+            // textBoxModalDetailsPatientName
             // 
-            textBox4.Location = new Point(376, 12);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(161, 27);
-            textBox4.TabIndex = 29;
+            textBoxModalDetailsPatientName.Location = new Point(376, 12);
+            textBoxModalDetailsPatientName.Name = "textBoxModalDetailsPatientName";
+            textBoxModalDetailsPatientName.Size = new Size(161, 27);
+            textBoxModalDetailsPatientName.TabIndex = 29;
             // 
-            // textBox3
+            // textBoxModalDetailsPatientFirstName
             // 
-            textBox3.Location = new Point(200, 12);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(161, 27);
-            textBox3.TabIndex = 27;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(12, 182);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(161, 27);
-            textBox1.TabIndex = 33;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 159);
-            label2.Name = "label2";
-            label2.Size = new Size(113, 20);
-            label2.TabIndex = 32;
-            label2.Text = "Nom de famille";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(12, 99);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(161, 27);
-            textBox2.TabIndex = 31;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 76);
-            label3.Name = "label3";
-            label3.Size = new Size(60, 20);
-            label3.TabIndex = 30;
-            label3.Text = "Prénom";
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(12, 261);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(61, 28);
-            comboBox2.TabIndex = 37;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(12, 338);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(161, 28);
-            comboBox1.TabIndex = 36;
+            textBoxModalDetailsPatientFirstName.Location = new Point(200, 12);
+            textBoxModalDetailsPatientFirstName.Name = "textBoxModalDetailsPatientFirstName";
+            textBoxModalDetailsPatientFirstName.Size = new Size(161, 27);
+            textBoxModalDetailsPatientFirstName.TabIndex = 27;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(12, 315);
+            label5.Location = new Point(155, 55);
             label5.Name = "label5";
             label5.Size = new Size(48, 20);
             label5.TabIndex = 35;
@@ -128,59 +77,84 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 238);
+            label4.Location = new Point(16, 55);
             label4.Name = "label4";
             label4.Size = new Size(36, 20);
             label4.TabIndex = 34;
             label4.Text = "Age";
             // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(231, 99);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(398, 364);
-            listBox1.TabIndex = 38;
-            // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(231, 76);
+            label6.Location = new Point(12, 132);
             label6.Name = "label6";
             label6.Size = new Size(164, 20);
             label6.TabIndex = 39;
             label6.Text = "Listes des ordonnaces : ";
             // 
-            // button1
+            // buttonModalDetailsPatientBack
             // 
-            button1.Location = new Point(12, 518);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 40;
-            button1.Text = "<- Retour";
-            button1.UseVisualStyleBackColor = true;
+            buttonModalDetailsPatientBack.Location = new Point(12, 518);
+            buttonModalDetailsPatientBack.Name = "buttonModalDetailsPatientBack";
+            buttonModalDetailsPatientBack.Size = new Size(94, 29);
+            buttonModalDetailsPatientBack.TabIndex = 40;
+            buttonModalDetailsPatientBack.Text = "<- Retour";
+            buttonModalDetailsPatientBack.UseVisualStyleBackColor = true;
+            buttonModalDetailsPatientBack.Click += buttonModalDetailsPatientBack_Click;
+            // 
+            // buttonModalDetailsPatientModify
+            // 
+            buttonModalDetailsPatientModify.Location = new Point(116, 518);
+            buttonModalDetailsPatientModify.Name = "buttonModalDetailsPatientModify";
+            buttonModalDetailsPatientModify.Size = new Size(94, 29);
+            buttonModalDetailsPatientModify.TabIndex = 41;
+            buttonModalDetailsPatientModify.Text = "Modifier";
+            buttonModalDetailsPatientModify.UseVisualStyleBackColor = true;
+            buttonModalDetailsPatientModify.Click += buttonModalDetailsPatientModify_Click;
+            // 
+            // comboBoxModalDetailsPatientAge
+            // 
+            comboBoxModalDetailsPatientAge.FormattingEnabled = true;
+            comboBoxModalDetailsPatientAge.Location = new Point(16, 78);
+            comboBoxModalDetailsPatientAge.Name = "comboBoxModalDetailsPatientAge";
+            comboBoxModalDetailsPatientAge.Size = new Size(80, 28);
+            comboBoxModalDetailsPatientAge.TabIndex = 42;
+            // 
+            // comboBoxModalDetailsPatientGender
+            // 
+            comboBoxModalDetailsPatientGender.FormattingEnabled = true;
+            comboBoxModalDetailsPatientGender.Location = new Point(155, 78);
+            comboBoxModalDetailsPatientGender.Name = "comboBoxModalDetailsPatientGender";
+            comboBoxModalDetailsPatientGender.Size = new Size(153, 28);
+            comboBoxModalDetailsPatientGender.TabIndex = 43;
+            // 
+            // listBoxModalDetailsPatientListPrescription
+            // 
+            listBoxModalDetailsPatientListPrescription.FormattingEnabled = true;
+            listBoxModalDetailsPatientListPrescription.Location = new Point(12, 155);
+            listBoxModalDetailsPatientListPrescription.Name = "listBoxModalDetailsPatientListPrescription";
+            listBoxModalDetailsPatientListPrescription.Size = new Size(776, 344);
+            listBoxModalDetailsPatientListPrescription.TabIndex = 44;
             // 
             // ModalDetailsPatient
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 559);
-            Controls.Add(button1);
+            Controls.Add(listBoxModalDetailsPatientListPrescription);
+            Controls.Add(comboBoxModalDetailsPatientGender);
+            Controls.Add(comboBoxModalDetailsPatientAge);
+            Controls.Add(buttonModalDetailsPatientModify);
+            Controls.Add(buttonModalDetailsPatientBack);
             Controls.Add(label6);
-            Controls.Add(listBox1);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
             Controls.Add(label5);
             Controls.Add(label4);
-            Controls.Add(textBox1);
-            Controls.Add(label2);
-            Controls.Add(textBox2);
-            Controls.Add(label3);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
+            Controls.Add(textBoxModalDetailsPatientName);
+            Controls.Add(textBoxModalDetailsPatientFirstName);
             Controls.Add(label1);
             Name = "ModalDetailsPatient";
             Text = "ModalDetailsPatient";
+            Load += ModalDetailsPatient_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -188,8 +162,8 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox4;
-        private TextBox textBox3;
+        private TextBox textBoxModalDetailsPatientName;
+        private TextBox textBoxModalDetailsPatientFirstName;
         private TextBox textBox1;
         private Label label2;
         private TextBox textBox2;
@@ -200,6 +174,10 @@
         private Label label4;
         private ListBox listBox1;
         private Label label6;
-        private Button button1;
+        private Button buttonModalDetailsPatientBack;
+        private Button buttonModalDetailsPatientModify;
+        private ComboBox comboBoxModalDetailsPatientAge;
+        private ComboBox comboBoxModalDetailsPatientGender;
+        private ListBox listBoxModalDetailsPatientListPrescription;
     }
 }
