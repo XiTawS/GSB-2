@@ -24,7 +24,7 @@ Définitions des entités principales (User, Patient, Medicine, etc.).
 ## 🚀 Démarrage Rapide
 
 1. **Cloner le dépôt**.
-2. **Lancer la Base de Données** (Facile) :
+2. **Lancer la Base de Données** [Connexion BDD](Documentation/Database.md):
    ```bash
    docker-compose -f Documentation/utils/compose.yml up -d
    ```
