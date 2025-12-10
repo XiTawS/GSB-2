@@ -1,0 +1,32 @@
+### YamlMime:ManagedReference
+items:
+- uid: GSB_2.Forms
+  commentId: N:GSB_2.Forms
+  id: GSB_2.Forms
+  children:
+  - GSB_2.Forms.FormDoctor
+  - GSB_2.Forms.FormLabo
+  langs:
+  - csharp
+  - vb
+  name: GSB_2.Forms
+  nameWithType: GSB_2.Forms
+  fullName: GSB_2.Forms
+  type: Namespace
+  assemblies:
+  - GSB-2
+references:
+- uid: GSB_2.Forms.FormDoctor
+  commentId: T:GSB_2.Forms.FormDoctor
+  isExternal: true
+  href: GSB_2.Forms.FormDoctor.html
+  name: FormDoctor
+  nameWithType: FormDoctor
+  fullName: GSB_2.Forms.FormDoctor
+- uid: GSB_2.Forms.FormLabo
+  commentId: T:GSB_2.Forms.FormLabo
+  isExternal: true
+  href: GSB_2.Forms.FormLabo.html
+  name: FormLabo
+  nameWithType: FormLabo
+  fullName: GSB_2.Forms.FormLabo

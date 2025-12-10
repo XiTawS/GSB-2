@@ -1,0 +1,24 @@
+### YamlMime:ManagedReference
+items:
+- uid: GSB_2.Models
+  commentId: N:GSB_2.Models
+  id: GSB_2.Models
+  children:
+  - GSB_2.Models.Prescription
+  langs:
+  - csharp
+  - vb
+  name: GSB_2.Models
+  nameWithType: GSB_2.Models
+  fullName: GSB_2.Models
+  type: Namespace
+  assemblies:
+  - GSB-2
+references:
+- uid: GSB_2.Models.Prescription
+  commentId: T:GSB_2.Models.Prescription
+  isExternal: true
+  href: GSB_2.Models.Prescription.html
+  name: Prescription
+  nameWithType: Prescription
+  fullName: GSB_2.Models.Prescription

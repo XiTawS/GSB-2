@@ -1,0 +1,652 @@
+### YamlMime:ManagedReference
+items:
+- uid: GSB_2.Models.Prescription
+  commentId: T:GSB_2.Models.Prescription
+  id: Prescription
+  parent: GSB_2.Models
+  children:
+  - GSB_2.Models.Prescription.#ctor(System.Int32,System.Int32,System.DateTime)
+  - GSB_2.Models.Prescription.#ctor(System.Int32,System.Int32,System.Int32,System.DateTime)
+  - GSB_2.Models.Prescription.IdPatient
+  - GSB_2.Models.Prescription.IdPrescription
+  - GSB_2.Models.Prescription.IdUser
+  - GSB_2.Models.Prescription.Médecin
+  - GSB_2.Models.Prescription.Médicaments
+  - GSB_2.Models.Prescription.Patient
+  - GSB_2.Models.Prescription.ToString
+  - GSB_2.Models.Prescription.Validity
+  langs:
+  - csharp
+  - vb
+  name: Prescription
+  nameWithType: Prescription
+  fullName: GSB_2.Models.Prescription
+  type: Class
+  source:
+    href: https://github.com/XiTawS/GSB-2/blob/00fe75b78a44dfee96ca089974b5b2f435f06450/Models/Prescription.cs
+  assemblies:
+  - GSB-2
+  namespace: GSB_2.Models
+  syntax:
+    content: public class Prescription
+    content.vb: Public Class Prescription
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: GSB_2.Models.Prescription.#ctor(System.Int32,System.Int32,System.Int32,System.DateTime)
+  commentId: M:GSB_2.Models.Prescription.#ctor(System.Int32,System.Int32,System.Int32,System.DateTime)
+  id: '#ctor(System.Int32,System.Int32,System.Int32,System.DateTime)'
+  parent: GSB_2.Models.Prescription
+  langs:
+  - csharp
+  - vb
+  name: Prescription(int, int, int, DateTime)
+  nameWithType: Prescription.Prescription(int, int, int, DateTime)
+  fullName: GSB_2.Models.Prescription.Prescription(int, int, int, System.DateTime)
+  type: Constructor
+  source:
+    href: https://github.com/XiTawS/GSB-2/blob/00fe75b78a44dfee96ca089974b5b2f435f06450/Models/Prescription.cs
+  assemblies:
+  - GSB-2
+  namespace: GSB_2.Models
+  syntax:
+    content: public Prescription(int idPrescription, int idUser, int idPatient, DateTime validity)
+    parameters:
+    - id: idPrescription
+      type: System.Int32
+    - id: idUser
+      type: System.Int32
+    - id: idPatient
+      type: System.Int32
+    - id: validity
+      type: System.DateTime
+    content.vb: Public Sub New(idPrescription As Integer, idUser As Integer, idPatient As Integer, validity As Date)
+  overload: GSB_2.Models.Prescription.#ctor*
+  nameWithType.vb: Prescription.New(Integer, Integer, Integer, Date)
+  fullName.vb: GSB_2.Models.Prescription.New(Integer, Integer, Integer, Date)
+  name.vb: New(Integer, Integer, Integer, Date)
+- uid: GSB_2.Models.Prescription.#ctor(System.Int32,System.Int32,System.DateTime)
+  commentId: M:GSB_2.Models.Prescription.#ctor(System.Int32,System.Int32,System.DateTime)
+  id: '#ctor(System.Int32,System.Int32,System.DateTime)'
+  parent: GSB_2.Models.Prescription
+  langs:
+  - csharp
+  - vb
+  name: Prescription(int, int, DateTime)
+  nameWithType: Prescription.Prescription(int, int, DateTime)
+  fullName: GSB_2.Models.Prescription.Prescription(int, int, System.DateTime)
+  type: Constructor
+  source:
+    href: https://github.com/XiTawS/GSB-2/blob/00fe75b78a44dfee96ca089974b5b2f435f06450/Models/Prescription.cs
+  assemblies:
+  - GSB-2
+  namespace: GSB_2.Models
+  syntax:
+    content: public Prescription(int idUser, int idPatient, DateTime validity)
+    parameters:
+    - id: idUser
+      type: System.Int32
+    - id: idPatient
+      type: System.Int32
+    - id: validity
+      type: System.DateTime
+    content.vb: Public Sub New(idUser As Integer, idPatient As Integer, validity As Date)
+  overload: GSB_2.Models.Prescription.#ctor*
+  nameWithType.vb: Prescription.New(Integer, Integer, Date)
+  fullName.vb: GSB_2.Models.Prescription.New(Integer, Integer, Date)
+  name.vb: New(Integer, Integer, Date)
+- uid: GSB_2.Models.Prescription.ToString
+  commentId: M:GSB_2.Models.Prescription.ToString
+  id: ToString
+  parent: GSB_2.Models.Prescription
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Prescription.ToString()
+  fullName: GSB_2.Models.Prescription.ToString()
+  type: Method
+  source:
+    href: https://github.com/XiTawS/GSB-2/blob/00fe75b78a44dfee96ca089974b5b2f435f06450/Models/Prescription.cs
+  assemblies:
+  - GSB-2
+  namespace: GSB_2.Models
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: GSB_2.Models.Prescription.ToString*
+- uid: GSB_2.Models.Prescription.IdPrescription
+  commentId: P:GSB_2.Models.Prescription.IdPrescription
+  id: IdPrescription
+  parent: GSB_2.Models.Prescription
+  langs:
+  - csharp
+  - vb
+  name: IdPrescription
+  nameWithType: Prescription.IdPrescription
+  fullName: GSB_2.Models.Prescription.IdPrescription
+  type: Property
+  source:
+    href: https://github.com/XiTawS/GSB-2/blob/00fe75b78a44dfee96ca089974b5b2f435f06450/Models/Prescription.cs
+  assemblies:
+  - GSB-2
+  namespace: GSB_2.Models
+  syntax:
+    content: public int IdPrescription { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property IdPrescription As Integer
+  overload: GSB_2.Models.Prescription.IdPrescription*
+- uid: GSB_2.Models.Prescription.IdUser
+  commentId: P:GSB_2.Models.Prescription.IdUser
+  id: IdUser
+  parent: GSB_2.Models.Prescription
+  langs:
+  - csharp
+  - vb
+  name: IdUser
+  nameWithType: Prescription.IdUser
+  fullName: GSB_2.Models.Prescription.IdUser
+  type: Property
+  source:
+    href: https://github.com/XiTawS/GSB-2/blob/00fe75b78a44dfee96ca089974b5b2f435f06450/Models/Prescription.cs
+  assemblies:
+  - GSB-2
+  namespace: GSB_2.Models
+  syntax:
+    content: public int IdUser { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property IdUser As Integer
+  overload: GSB_2.Models.Prescription.IdUser*
+- uid: GSB_2.Models.Prescription.IdPatient
+  commentId: P:GSB_2.Models.Prescription.IdPatient
+  id: IdPatient
+  parent: GSB_2.Models.Prescription
+  langs:
+  - csharp
+  - vb
+  name: IdPatient
+  nameWithType: Prescription.IdPatient
+  fullName: GSB_2.Models.Prescription.IdPatient
+  type: Property
+  source:
+    href: https://github.com/XiTawS/GSB-2/blob/00fe75b78a44dfee96ca089974b5b2f435f06450/Models/Prescription.cs
+  assemblies:
+  - GSB-2
+  namespace: GSB_2.Models
+  syntax:
+    content: public int IdPatient { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property IdPatient As Integer
+  overload: GSB_2.Models.Prescription.IdPatient*
+- uid: GSB_2.Models.Prescription.Validity
+  commentId: P:GSB_2.Models.Prescription.Validity
+  id: Validity
+  parent: GSB_2.Models.Prescription
+  langs:
+  - csharp
+  - vb
+  name: Validity
+  nameWithType: Prescription.Validity
+  fullName: GSB_2.Models.Prescription.Validity
+  type: Property
+  source:
+    href: https://github.com/XiTawS/GSB-2/blob/00fe75b78a44dfee96ca089974b5b2f435f06450/Models/Prescription.cs
+  assemblies:
+  - GSB-2
+  namespace: GSB_2.Models
+  syntax:
+    content: public DateTime Validity { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property Validity As Date
+  overload: GSB_2.Models.Prescription.Validity*
+- uid: GSB_2.Models.Prescription.Patient
+  commentId: P:GSB_2.Models.Prescription.Patient
+  id: Patient
+  parent: GSB_2.Models.Prescription
+  langs:
+  - csharp
+  - vb
+  name: Patient
+  nameWithType: Prescription.Patient
+  fullName: GSB_2.Models.Prescription.Patient
+  type: Property
+  source:
+    href: https://github.com/XiTawS/GSB-2/blob/00fe75b78a44dfee96ca089974b5b2f435f06450/Models/Prescription.cs
+  assemblies:
+  - GSB-2
+  namespace: GSB_2.Models
+  syntax:
+    content: public string Patient { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Patient As String
+  overload: GSB_2.Models.Prescription.Patient*
+- uid: GSB_2.Models.Prescription.Médecin
+  commentId: P:GSB_2.Models.Prescription.Médecin
+  id: Médecin
+  parent: GSB_2.Models.Prescription
+  langs:
+  - csharp
+  - vb
+  name: Médecin
+  nameWithType: Prescription.Médecin
+  fullName: GSB_2.Models.Prescription.Médecin
+  type: Property
+  source:
+    href: https://github.com/XiTawS/GSB-2/blob/00fe75b78a44dfee96ca089974b5b2f435f06450/Models/Prescription.cs
+  assemblies:
+  - GSB-2
+  namespace: GSB_2.Models
+  syntax:
+    content: public string Médecin { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Médecin As String
+  overload: GSB_2.Models.Prescription.Médecin*
+- uid: GSB_2.Models.Prescription.Médicaments
+  commentId: P:GSB_2.Models.Prescription.Médicaments
+  id: Médicaments
+  parent: GSB_2.Models.Prescription
+  langs:
+  - csharp
+  - vb
+  name: Médicaments
+  nameWithType: Prescription.Médicaments
+  fullName: GSB_2.Models.Prescription.Médicaments
+  type: Property
+  source:
+    href: https://github.com/XiTawS/GSB-2/blob/00fe75b78a44dfee96ca089974b5b2f435f06450/Models/Prescription.cs
+  assemblies:
+  - GSB-2
+  namespace: GSB_2.Models
+  syntax:
+    content: public string Médicaments { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Médicaments As String
+  overload: GSB_2.Models.Prescription.Médicaments*
+references:
+- uid: GSB_2.Models
+  commentId: N:GSB_2.Models
+  isExternal: true
+  href: GSB_2.html
+  name: GSB_2.Models
+  nameWithType: GSB_2.Models
+  fullName: GSB_2.Models
+  spec.csharp:
+  - uid: GSB_2
+    name: GSB_2
+    isExternal: true
+    href: GSB_2.html
+  - name: .
+  - uid: GSB_2.Models
+    name: Models
+    isExternal: true
+    href: GSB_2.Models.html
+  spec.vb:
+  - uid: GSB_2
+    name: GSB_2
+    isExternal: true
+    href: GSB_2.html
+  - name: .
+  - uid: GSB_2.Models
+    name: Models
+    isExternal: true
+    href: GSB_2.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: GSB_2.Models.Prescription.#ctor*
+  commentId: Overload:GSB_2.Models.Prescription.#ctor
+  isExternal: true
+  href: GSB_2.Models.Prescription.html#GSB_2_Models_Prescription__ctor_System_Int32_System_Int32_System_Int32_System_DateTime_
+  name: Prescription
+  nameWithType: Prescription.Prescription
+  fullName: GSB_2.Models.Prescription.Prescription
+  nameWithType.vb: Prescription.New
+  fullName.vb: GSB_2.Models.Prescription.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: GSB_2.Models.Prescription.ToString*
+  commentId: Overload:GSB_2.Models.Prescription.ToString
+  isExternal: true
+  href: GSB_2.Models.Prescription.html#GSB_2_Models_Prescription_ToString
+  name: ToString
+  nameWithType: Prescription.ToString
+  fullName: GSB_2.Models.Prescription.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: GSB_2.Models.Prescription.IdPrescription*
+  commentId: Overload:GSB_2.Models.Prescription.IdPrescription
+  isExternal: true
+  href: GSB_2.Models.Prescription.html#GSB_2_Models_Prescription_IdPrescription
+  name: IdPrescription
+  nameWithType: Prescription.IdPrescription
+  fullName: GSB_2.Models.Prescription.IdPrescription
+- uid: GSB_2.Models.Prescription.IdUser*
+  commentId: Overload:GSB_2.Models.Prescription.IdUser
+  isExternal: true
+  href: GSB_2.Models.Prescription.html#GSB_2_Models_Prescription_IdUser
+  name: IdUser
+  nameWithType: Prescription.IdUser
+  fullName: GSB_2.Models.Prescription.IdUser
+- uid: GSB_2.Models.Prescription.IdPatient*
+  commentId: Overload:GSB_2.Models.Prescription.IdPatient
+  isExternal: true
+  href: GSB_2.Models.Prescription.html#GSB_2_Models_Prescription_IdPatient
+  name: IdPatient
+  nameWithType: Prescription.IdPatient
+  fullName: GSB_2.Models.Prescription.IdPatient
+- uid: GSB_2.Models.Prescription.Validity*
+  commentId: Overload:GSB_2.Models.Prescription.Validity
+  isExternal: true
+  href: GSB_2.Models.Prescription.html#GSB_2_Models_Prescription_Validity
+  name: Validity
+  nameWithType: Prescription.Validity
+  fullName: GSB_2.Models.Prescription.Validity
+- uid: GSB_2.Models.Prescription.Patient*
+  commentId: Overload:GSB_2.Models.Prescription.Patient
+  isExternal: true
+  href: GSB_2.Models.Prescription.html#GSB_2_Models_Prescription_Patient
+  name: Patient
+  nameWithType: Prescription.Patient
+  fullName: GSB_2.Models.Prescription.Patient
+- uid: GSB_2.Models.Prescription.Médecin*
+  commentId: Overload:GSB_2.Models.Prescription.Médecin
+  isExternal: true
+  href: GSB_2.Models.Prescription.html#GSB_2_Models_Prescription_Médecin
+  name: Médecin
+  nameWithType: Prescription.Médecin
+  fullName: GSB_2.Models.Prescription.Médecin
+- uid: GSB_2.Models.Prescription.Médicaments*
+  commentId: Overload:GSB_2.Models.Prescription.Médicaments
+  isExternal: true
+  href: GSB_2.Models.Prescription.html#GSB_2_Models_Prescription_Médicaments
+  name: Médicaments
+  nameWithType: Prescription.Médicaments
+  fullName: GSB_2.Models.Prescription.Médicaments
