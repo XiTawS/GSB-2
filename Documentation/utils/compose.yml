@@ -6,7 +6,7 @@ services:
     container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: sql_sio
+      MYSQL_DATABASE: gsb-2
       TZ: Europe/Paris
       # Optionnel si tu veux autoriser root depuis l'extérieur (sinon crée un user)
       # MYSQL_ROOT_HOST: "%"
