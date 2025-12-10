@@ -60,7 +60,7 @@ namespace GSB_2.Forms.Modal
                 return;
             }
 
-            string dosageComplet = $"{dosage} {unite}";
+            string dosageComplet = $"{dosage}{unite}";
 
             try
             {

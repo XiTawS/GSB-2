@@ -28,11 +28,6 @@ namespace GSB_2.Forms
             ConfigurerPlaceholder(textBoxViewDoctorSearchPatient, "Rechercher un patient...");
             ConfigurerPlaceholder(textBoxViewDoctorSearchPrescription, "Rechercher une ordonnance...");
             RefreshAllGrids();
-
-            // Double-clic sur les grilles
-            dataGridViewDoctorListPatient.CellDoubleClick += DataGridViewDoctorListPatient_CellDoubleClick;
-            dataGridViewDoctorListPrescription.CellDoubleClick += DataGridViewDoctorListPrescription_CellDoubleClick;
-            dataGridViewDoctorListMedicine.CellDoubleClick += DataGridViewDoctorListMedicine_CellDoubleClick;
         }
 
         // ── PLACEHOLDERS ─────────────────────
@@ -229,9 +224,6 @@ namespace GSB_2.Forms
                 login.Show();
                 this.Hide();
 
-                // Ferme toutes les fenêtres sauf le login
-                foreach (Form f in Application.OpenForms.Cast<Form>().ToList())
-                    if (f != login) f.Close();
             }
         }
 

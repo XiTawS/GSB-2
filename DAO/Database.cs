@@ -9,7 +9,7 @@ namespace GSB_2.DAO
 {
     internal class Database
     {
-        private readonly string mySqlConnection = "server=10.28.65.35;uid=root;pwd=root;database=gsb-2";
+        private readonly string mySqlConnection = "server=127.0.0.1;uid=root;pwd=root;database=gsb-2";
         public MySqlConnection GetConnection()
         {
             return new MySqlConnection(mySqlConnection);

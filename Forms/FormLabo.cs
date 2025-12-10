@@ -173,9 +173,6 @@ namespace GSB_2.Forms
                 var login = new FormLogin();
                 login.Show();
                 this.Hide();
-
-                foreach (Form f in Application.OpenForms.Cast<Form>().ToList())
-                    if (f != login) f.Close();
             }
         }
     }

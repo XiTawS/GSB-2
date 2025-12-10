@@ -7,6 +7,13 @@
 -- Version du serveur : 8.1.0
 -- Version de PHP : 8.2.27
 
+-- Supprimer la base de données gsb-2 si elle existe déjà
+DROP DATABASE IF EXISTS `gsb-2`;
+
+-- Création de la base de données gsb-2
+CREATE DATABASE IF NOT EXISTS `gsb-2` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `gsb-2`;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -18,7 +25,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `mydatabase`
+-- Base de données : `gsb-2`
 --
 
 DROP TABLE IF EXISTS `Appartient`;
