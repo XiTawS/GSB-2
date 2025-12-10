@@ -24,9 +24,17 @@ Définitions des entités principales (User, Patient, Medicine, etc.).
 ## 🚀 Démarrage Rapide
 
 1. **Cloner le dépôt**.
-2. **Importer la Base de Données** : Assurez-vous que votre serveur MySQL fonctionne et importez le script SQL fourni.
-3. **Configurer la Connexion** : Vérifiez le fichier `Database.cs` pour vous assurer que la chaîne de connexion correspond à votre environnement local.
-4. **Compiler & Lancer** : Ouvrez `GSB-2.sln` dans Visual Studio et lancez le projet.
+2. **Lancer la Base de Données** (Facile) :
+   ```bash
+   docker-compose -f Documentation/utils/compose.yml up -d
+   ```
+   > Cela lance MySQL et phpMyAdmin (http://localhost:8080).
+
+3. **Importer les Données** :
+   - Connectez-vous à phpMyAdmin (`root` / `root`)
+   - Importez le fichier `Documentation/utils/mydatabase.sql`.
+
+4. **Configurer & Lancer** : Ouvrez `GSB-2.sln` dans Visual Studio et lancez le projet.
 
 ---
 
@@ -38,3 +46,12 @@ Définitions des entités principales (User, Patient, Medicine, etc.).
 - **Gestion des Ordonnances** : Flux complet pour créer et gérer des ordonnances avec plusieurs médicaments.
 
 ---
+
+## 👤 Comptes de Test
+
+Utilisez ces comptes pour vous connecter à l'application :
+
+| Rôle | Email | Mot de passe |
+| :--- | :--- | :--- |
+| **Technicien Labo** | `labo@gsb.com` | `password` |
+| **Médecin** | `doc@gsb.com` | `password` |
