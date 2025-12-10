@@ -6,6 +6,8 @@ Cette section décrit les principaux formulaires Windows (Windows Forms) qui con
 
 ## 🔐 FormLogin
 
+![Page de Connexion](images/FormLogin.png)
+
 Le point d'entrée de l'application.
 
 ### Fonctionnalités
@@ -18,6 +20,8 @@ Le point d'entrée de l'application.
 ---
 
 ## 👨‍⚕️ FormDoctor
+
+![Tableau de bord Médecin](images/FormDoctor.png)
 
 Le tableau de bord pour les Médecins.
 
@@ -43,6 +47,8 @@ Le tableau de bord pour les Médecins.
 
 ## 🧪 FormLabo
 
+![Tableau de bord Labo](images/FormLabo.png)
+
 Le tableau de bord pour les Techniciens de Laboratoire.
 
 ### Fonctionnalités
@@ -60,3 +66,53 @@ Le tableau de bord pour les Techniciens de Laboratoire.
 ### Logique Clé
 - `RefreshAllGrids()` : Rafraîchit les listes de médicaments et d'utilisateurs.
 - `OuvrirEditionSiPossible(...)` : Une méthode générique pour ouvrir en toute sécurité les boîtes de dialogue modales pour l'édition des entités, évitant les `NullReferenceException`.
+
+---
+
+## 📦 Modales (Fenêtres de dialogue)
+
+Les modales sont des formulaires secondaires ouverts par les formulaires principaux pour des tâches spécifiques (Création, Édition, Détails).
+
+### 🩺 Liées à FormDoctor
+
+Ces modales sont utilisées par les médecins pour gérer les patients et les prescriptions.
+
+#### ModalCreatePatient
+Formulaire d'ajout d'un nouveau patient (Nom, Prénom, Age, Genre).
+![ModalCreatePatient](images/ModalCreatePatient.png)
+
+#### ModalDetailsPatient
+Affiche les informations complètes d'un patient existant et permet sa modification.
+![ModalDetailsPatient](images/ModalDetailsPatient.png)
+
+#### ModalCreatePrescription
+Interface complexe pour créer une ordonnance. Permet d'ajouter plusieurs médicaments avec leurs quantités.
+![ModalCreatePrescription](images/ModalCreatePrescription.png)
+
+#### ModalEditPrescription
+Permet de modifier une ordonnance existante (Changer validité, ajouter/retirer médicaments).
+![ModalEditPrescription](images/ModalEditPrescription.png)
+
+#### ModalReadMedicine
+Affiche les détails d'un médicament en lecture seule pour information.
+![ModalReadMedicine](images/ModalReadMedicine.png)
+
+### 🔬 Liées à FormLabo
+
+Ces modales sont utilisées par les techniciens de laboratoire pour gérer le stock et les accès.
+
+#### ModalCreateMedicine
+Formulaire d'ajout d'un nouveau médicament au stock.
+![ModalCreateMedicine](images/ModalCreateMedicine.png)
+
+#### ModalEditMedicine
+Permet de modifier les propriétés d'un médicament (Nom, Dosage, etc.).
+![ModalEditMedicine](images/ModalEditMedicine.png)
+
+#### ModalCreateUser
+Formulaire de création d'un nouvel utilisateur (Médecin ou Labo).
+![ModalCreateUser](images/ModalCreateUser.png)
+
+#### ModalEditUser
+Permet de modifier un utilisateur (Changer rôle, email, ou réinitialiser mot de passe).
+![ModalEditUser](images/ModalEditUser.png)

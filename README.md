@@ -5,14 +5,19 @@ Bienvenue dans la documentation du projet **GSB-2**. Cette application C# WinFor
 ---
 
 ## 📚 Contenu de la Documentation
-
 La documentation est divisée en trois sections principales pour une meilleure lisibilité :
 
-| Section | Description | Lien |
-| :--- | :--- | :---: |
-| **Interface Utilisateur** | Détaille les Formulaires et la logique d'interaction (Connexion, Tableau de bord Médecin, Tableau de bord Labo). | [🖥️ Documentation des Formulaires](Documentation/Forms.md) |
-| **Accès aux Données** | Détails techniques sur la communication de l'app avec la base de données MySQL (Pattern DAO). | [🗄️ Documentation DAO](Documentation/DAO.md) <br> [🔌 Connexion BDD](Documentation/Database.md) |
-| **Modèles de Données** | Définitions des entités principales (User, Patient, Medicine, etc.). | [📄 Documentation des Modèles](Documentation/Models.md) |
+### 🖥️ Interface Utilisateur
+Détaille les Formulaires et la logique d'interaction (Connexion, Tableau de bord Médecin, Tableau de bord Labo).
+[Documentation des Formulaires](Documentation/Forms.md)
+
+### 🗄️ Accès aux Données
+Détails techniques sur la communication de l'app avec la base de données MySQL (Pattern DAO).
+[Documentation DAO](Documentation/DAO.md) | [Connexion BDD](Documentation/Database.md)
+
+### 📄 Modèles de Données
+Définitions des entités principales (User, Patient, Medicine, etc.).
+[Documentation des Modèles](Documentation/Models.md)
 
 ---
 
@@ -33,6 +38,3 @@ La documentation est divisée en trois sections principales pour une meilleure l
 - **Gestion des Ordonnances** : Flux complet pour créer et gérer des ordonnances avec plusieurs médicaments.
 
 ---
-
-> [!NOTE]
-> Ce projet utilise **DocFX** pour générer des sites de documentation statiques, mais les fichiers Markdown liés ci-dessus sont conçus pour être lus directement sur GitHub.
