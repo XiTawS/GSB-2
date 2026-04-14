@@ -53,5 +53,5 @@ Utilisez ces comptes pour vous connecter à l'application :
 
 | Rôle | Email | Mot de passe |
 | :--- | :--- | :--- |
-| **Technicien Labo** | `labo@gsb.com` | `password` |
-| **Médecin** | `doc@gsb.com` | `password` |
+| **Technicien Labo** | `labo@gsb.com` | `labo1234` |
+| **Médecin** | `doc@gsb.com` | `doc1234` |
