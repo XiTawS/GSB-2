@@ -96,8 +96,8 @@ ALTER TABLE `Prescription`
 
 -- Insertion des données dans User
 INSERT INTO `User` (`id_user`, `firstname`, `role`, `name`, `email`, `password`) VALUES
-(1, 'Laboratoire', 0, 'Labo', 'labo@gsb.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'),
-(2, 'Docteur', 1, 'Doc', 'doc@gsb.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8');
+(1, 'Laboratoire', 0, 'Labo', 'labo@gsb.com', '9cd5a98261731b56f1476bc35e9e7c658efa57fdca0e724b9365b98c0845dc03'),
+(2, 'Docteur', 1, 'Doc', 'doc@gsb.com', '891890c808e66a1f2acf429267f383c96654c26d22d11b7c62d755eb9079eb53');
 
 -- Insertion des données dans Medicine
 INSERT INTO `Medicine` (`id_medicine`, `id_user`, `dosage`, `name`, `description`, `molecule`) VALUES
